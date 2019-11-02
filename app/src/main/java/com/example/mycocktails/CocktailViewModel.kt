@@ -76,7 +76,6 @@ class CocktailViewModel(val database: CocktailDao, application: Application, val
     private suspend fun initDb() {
 
         withContext(Dispatchers.IO) {
-            clear()
             var c = Cocktail( )
             c.name = "Margarita"
             c.category = "Ordinary Drink"

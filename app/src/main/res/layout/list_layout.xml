@@ -14,47 +14,37 @@
     </data>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="-35dp"
-        android:orientation="vertical"
-        android:onClick="@{() -> clickListener.onClick(cocktail)}">
+        android:background="@drawable/list"
+        android:orientation="horizontal">
 
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/listCardId"
+        <Button
+            android:id="@+id/CocktailNameBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="16dp"
-            android:onClick="@{() -> clickListener.onClick(cocktail)}">
-            >
+            android:layout_marginLeft="75dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="sans-serif"
+            android:onClick="@{() -> clickListener.onClick(cocktail)}"
+            android:paddingLeft="15dp"
+            android:text="Button"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="24sp"
+            app:cocktailName="@{cocktail}" />
 
-                <Button
-                    android:id="@+id/CocktailNameBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:fontFamily="sans-serif"
-                    android:paddingBottom="100dp"
-                    android:text="Button"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textSize="36sp"
-                    app:cocktailName="@{cocktail}"
-                    android:onClick="@{() -> clickListener.onClick(cocktail)}"
-
-                />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@android:color/transparent"
+            android:padding="15dp"
+            app:srcCompat="@drawable/arrow_right" />
     </LinearLayout>
+
 </layout>

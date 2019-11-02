@@ -4,50 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
-        <variable
-            name="searchViewModel"
-            type="com.example.mycocktails.SearchViewModel" />
-    </data>
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/background_light"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="@drawable/mycocktailbackground">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:text="Zoeken"
             android:textAlignment="center"
             android:textColor="@android:color/background_dark"
-            android:textSize="36sp" />
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
+            android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:orientation="horizontal">
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/background_light"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4">
+                android:layout_weight="1">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/SearchBar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Cocktail" />
+                    android:hint="Cocktail"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageButton
@@ -55,34 +55,46 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0"
-                android:background="@android:color/background_light"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
+                android:background="@android:color/transparent"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 app:srcCompat="@drawable/ic_search_black_24dp" />
 
         </LinearLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxBackgroundColor="#E91E63" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:text="Categorieën"
             android:textAlignment="center"
             android:textColor="@android:color/background_dark"
-            android:textSize="36sp" />
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/categoryRecycleView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_gravity="clip_horizontal|center"
-            android:foregroundGravity="center|center_horizontal" />
-    </LinearLayout>
+            android:foregroundGravity="center|center_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+        <variable
+            name="searchViewModel"
+            type="com.example.mycocktails.SearchViewModel" />
+    </data>
+
 </layout>

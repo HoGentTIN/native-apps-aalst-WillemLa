@@ -52,10 +52,10 @@ class CreateCocktailFragment : Fragment() {
         binding.cocktailViewModel = CocktailViewModel
         binding.setLifecycleOwner(this)
 
-        addIngredientBtn.setOnClickListener{
+        viewModel = CocktailViewModel
 
 
-
+        binding.addIngredientBtn.setOnClickListener{
             if (table.childCount < 15){
                 var tableRow = TableRow(context)
                 var textInputLayout = TextInputLayout(context)
@@ -72,9 +72,8 @@ class CreateCocktailFragment : Fragment() {
             }
         }
 
-        addCocktail.setOnClickListener{
-            var cocktail = Cocktail("Margari", "sss")
-            viewModel.addCocktail(cocktail)
+        binding.addCocktail.setOnClickListener{
+            viewModel.addCocktail(Cocktail(binding.cocktailNaam.text.toString(), binding.cocktailCategory.selectedItem.toString()))
         }
 
         return binding.root

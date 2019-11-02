@@ -3,4 +3,19 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="soortenArray">
+        <item>Ordinary Drink</item>
+        <item>Cocktail</item>
+        <item>Milk / Float / Shake</item>
+        <item>Other/Unknown</item>
+        <item>Cocoa</item>
+        <item>Shot</item>
+        <item>Coffee / Tea</item>
+        <item>Homemade Liquer</item>
+        <item>Punch / Party Drink</item>
+        <item>Beer</item>
+        <item>Soft Drink / Soda</item>
+
+    </string-array>
 </resources>

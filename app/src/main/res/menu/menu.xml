@@ -2,15 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/SearchFragment"
         android:icon="@drawable/ic_search_black_24dp"
         android:title="Search"  />
     <item
-        android:id="@+id/favorites"
+        android:id="@+id/CreateCocktailFragment"
         android:icon="@drawable/ic_search_black_24dp"
-        android:title="Favorites"  />
-    <item
-        android:id="@+id/extra"
-        android:icon="@drawable/ic_star_black_24dp"
-        android:title="Extra"  />
+        android:title="Create" />
 </menu>
