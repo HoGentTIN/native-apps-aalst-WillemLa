@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="category"
+            type="com.example.mycocktails.Category" />
+        <variable
+            name="clickListener"
+            type="com.example.mycocktails.CategoryListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:gravity="center"
+        android:paddingBottom="10dp">
+
+        android:id="@+id/categoryCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="15dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorAccent"
+            android:onClick="@{() -> clickListener.onClick(category)}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/CategoryImgId"
+                    android:layout_width="175dp"
+                    android:layout_height="175dp"
+                    android:background="@android:color/background_light"
+                    app:srcCompat="@android:drawable/btn_star_big_on"
+                    app:categoryImage="@{category}"
+                    android:onClick="@{() -> clickListener.onClick(category)}"
+                    />
+
+                <Button
+                    android:id="@+id/CategoryBtnId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorAccent"
+                    android:text="Button"
+                    android:textColor="@android:color/background_light"
+                    app:categoryName="@{category}"
+                    android:onClick="@{() -> clickListener.onClick(category)}"
+                    />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>
