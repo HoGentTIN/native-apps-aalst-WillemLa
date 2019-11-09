@@ -8,14 +8,14 @@
     <data>
         <variable
             name="cocktailViewModel"
-            type="com.example.mycocktails.CocktailViewModel" />
+            type="com.example.mycocktails.screens.cocktail.CocktailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".CocktailFragment">
+        tools:context=".screens.cocktail.CocktailFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RecyclerViewId"

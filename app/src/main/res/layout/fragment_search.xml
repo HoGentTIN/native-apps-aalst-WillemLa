@@ -94,7 +94,7 @@
     <data>
         <variable
             name="searchViewModel"
-            type="com.example.mycocktails.SearchViewModel" />
+            type="com.example.mycocktails.screens.search.SearchViewModel" />
     </data>
 
 </layout>

@@ -1,8 +1,10 @@
-package com.example.mycocktails
+package com.example.mycocktails.screens.search
 
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.mycocktails.R
+import com.example.mycocktails.database.CategoryDao
+import com.example.mycocktails.domain.Category
 import kotlinx.coroutines.*
 
 class SearchViewModel(val database: CategoryDao, application: Application) :   AndroidViewModel(application) {

@@ -1,4 +1,4 @@
-package com.example.mycocktails
+package com.example.mycocktails.screens.search
 
 
 import android.os.Bundle
@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -15,7 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mycocktails.R
-import com.example.mycocktails.databinding.FragmentCocktailBinding
+import com.example.mycocktails.database.CocktailDatabase
 import com.example.mycocktails.databinding.FragmentSearchBinding
 import kotlinx.android.synthetic.main.fragment_search.*
 
@@ -34,13 +33,15 @@ class SearchFragment : Fragment() {
         //view inflate + bindind class instantie
 
 
-        val binding: FragmentSearchBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
+        val binding: FragmentSearchBinding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_search, container, false)
         binding.categoryRecycleView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
 
         val application = requireNotNull(this.activity).application
 
         val dataSource = CocktailDatabase.getInstance(application).categoryDao
-        val viewModelFactory = CategoryViewModelFactory(dataSource, application)
+        val viewModelFactory =
+            CategoryViewModelFactory(dataSource, application)
         val SearchViewModel = ViewModelProviders.of(this, viewModelFactory).get(SearchViewModel::class.java)
 
         binding.searchViewModel = SearchViewModel
@@ -51,7 +52,12 @@ class SearchFragment : Fragment() {
 
         binding.SearchBtn.setOnClickListener{
             view: View ->
-            findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToCocktailFragment(null, SearchBar.text.toString()))
+            findNavController().navigate(
+                SearchFragmentDirections.actionSearchFragmentToCocktailFragment(
+                    null,
+                    SearchBar.text.toString()
+                )
+            )
         }
 /*
         binding.searchBar.setOnClickListener{
@@ -81,13 +87,19 @@ class SearchFragment : Fragment() {
             )}
         */
 
-        val adapter = CategoryAdapter(CategoryListener {
-                name -> SearchViewModel.onCategoryClicked(name)
-        })
+        val adapter =
+            CategoryAdapter(CategoryListener { name ->
+                SearchViewModel.onCategoryClicked(name)
+            })
 
         SearchViewModel.navigateToCategory.observe(this, Observer { name ->
             name?.let{
-                findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToCocktailFragment(name, null))
+                findNavController().navigate(
+                    SearchFragmentDirections.actionSearchFragmentToCocktailFragment(
+                        name,
+                        null
+                    )
+                )
                 viewModel.onNavigated()//anders kan je niet terug
             }
         })

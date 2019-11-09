@@ -1,7 +1,8 @@
-package com.example.mycocktails
+package com.example.mycocktails.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.mycocktails.domain.Cocktail
 
 //Data access object
 @Dao

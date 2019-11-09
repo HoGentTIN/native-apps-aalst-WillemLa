@@ -4,12 +4,12 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".CreateCocktailFragment">
+    tools:context=".screens.create.CreateCocktailFragment">
 
     <data>
         <variable
             name="cocktailViewModel"
-            type="com.example.mycocktails.CocktailViewModel" />
+            type="com.example.mycocktails.screens.cocktail.CocktailViewModel" />
     </data>
 
     <FrameLayout

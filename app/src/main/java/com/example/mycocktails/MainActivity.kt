@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        bottomNav = binding.bottomNav
+        //bottomNav = binding.bottomNav
         drawerLayout = binding.drawerLayout
 
 /*
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        bottomNav.setOnNavigationItemSelectedListener(object :
+        /*bottomNav.setOnNavigationItemSelectedListener(object :
             BottomNavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 lateinit var selectedFragment: Fragment
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                     .replace(R.id.fragment_container, selectedFragment).commit()
                 return true
             }
-        })
+        })*/
 
     }
     override fun onSupportNavigateUp(): Boolean {

@@ -5,6 +5,8 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
+import com.example.mycocktails.domain.Category
+import com.example.mycocktails.domain.Cocktail
 
 @BindingAdapter("cocktailName")
 fun TextView.setCocktailNaam(item: Cocktail?){
@@ -49,7 +51,7 @@ fun TextView.setCocktailCategory(item: Category?){
 
 @BindingAdapter("categoryImage")
 fun ImageButton.setCategoryImage(item: Category){
-    item?.let {
+    item.let {
         setImageResource(when(item.name){
             //fixen
             "Ordinary Drink" -> R.drawable.ordinary

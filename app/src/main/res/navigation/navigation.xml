@@ -6,7 +6,7 @@
     app:startDestination="@id/SearchFragment">
     <fragment
         android:id="@+id/SearchFragment"
-        android:name="com.example.mycocktails.SearchFragment"
+        android:name="com.example.mycocktails.screens.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/cocktailFragment"
-        android:name="com.example.mycocktails.CocktailFragment"
+        android:name="com.example.mycocktails.screens.cocktail.CocktailFragment"
         android:label="fragment_cocktail"
         tools:layout="@layout/fragment_cocktail" >
         <action
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/recipeFragment"
-        android:name="com.example.mycocktails.RecipeFragment"
+        android:name="com.example.mycocktails.screens.recipe.RecipeFragment"
         android:label="fragment_recipe"
         tools:layout="@layout/fragment_recipe" >
         <argument
@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/CreateCocktailFragment"
-        android:name="com.example.mycocktails.CreateCocktailFragment"
+        android:name="com.example.mycocktails.screens.create.CreateCocktailFragment"
         android:label="fragment_create_cocktail"
         tools:layout="@layout/fragment_create_cocktail" />
 </navigation>

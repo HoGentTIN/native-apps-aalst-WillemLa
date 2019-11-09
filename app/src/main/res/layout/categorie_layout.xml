@@ -7,10 +7,10 @@
     <data>
         <variable
             name="category"
-            type="com.example.mycocktails.Category" />
+            type="com.example.mycocktails.domain.Category" />
         <variable
             name="clickListener"
-            type="com.example.mycocktails.CategoryListener" />
+            type="com.example.mycocktails.screens.search.CategoryListener" />
     </data>
 
     <LinearLayout

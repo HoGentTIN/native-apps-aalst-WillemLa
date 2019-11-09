@@ -1,8 +1,9 @@
-package com.example.mycocktails
+package com.example.mycocktails.screens.cocktail
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.mycocktails.database.CocktailDao
 import java.lang.IllegalArgumentException
 
 class CocktailViewModelFactory(
@@ -10,7 +11,12 @@ class CocktailViewModelFactory(
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(CocktailViewModel::class.java)){
-            return CocktailViewModel(dataSource, application, categoryName, cocktailName) as T
+            return CocktailViewModel(
+                dataSource,
+                application,
+                categoryName,
+                cocktailName
+            ) as T
         }
         throw IllegalArgumentException("CocktailViewModelFactory - Onbekende ViewModel Class")
     }

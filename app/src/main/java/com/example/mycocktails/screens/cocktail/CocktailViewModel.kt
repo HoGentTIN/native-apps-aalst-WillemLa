@@ -1,10 +1,11 @@
-package com.example.mycocktails
+package com.example.mycocktails.screens.cocktail
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.mycocktails.database.CocktailDao
+import com.example.mycocktails.domain.Cocktail
 import kotlinx.coroutines.*
 
 
@@ -16,10 +17,10 @@ class CocktailViewModel(val database: CocktailDao, application: Application, val
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     var cocktails =
         if (cocktailName != null){
-            database.getByCocktailName( "%" + cocktailName!! + "%")
+            database.getByCocktailName( "%" + cocktailName + "%")
         } else {
             if (categoryName != null) {
-                database.getByCategory(categoryName!!)
+                database.getByCategory(categoryName)
             } else {
                 database.getAll()
             }
@@ -76,7 +77,7 @@ class CocktailViewModel(val database: CocktailDao, application: Application, val
     private suspend fun initDb() {
 
         withContext(Dispatchers.IO) {
-            var c = Cocktail( )
+            var c = Cocktail()
             c.name = "Margarita"
             c.category = "Ordinary Drink"
             insert(c)

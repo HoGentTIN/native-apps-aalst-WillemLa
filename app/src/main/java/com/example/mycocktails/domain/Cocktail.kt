@@ -1,4 +1,4 @@
-package com.example.mycocktails
+package com.example.mycocktails.domain
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

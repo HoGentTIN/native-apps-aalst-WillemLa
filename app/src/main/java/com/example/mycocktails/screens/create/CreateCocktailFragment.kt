@@ -1,4 +1,4 @@
-package com.example.mycocktails
+package com.example.mycocktails.screens.create
 
 
 import android.os.Bundle
@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.TableRow
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
+import com.example.mycocktails.R
+import com.example.mycocktails.database.CocktailDatabase
 import com.example.mycocktails.databinding.FragmentCreateCocktailBinding
-import com.example.mycocktails.databinding.FragmentRecipeBinding
+import com.example.mycocktails.domain.Cocktail
+import com.example.mycocktails.screens.cocktail.CocktailViewModel
+import com.example.mycocktails.screens.cocktail.CocktailViewModelFactory
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import kotlinx.android.synthetic.main.fragment_create_cocktail.*
-import kotlinx.android.synthetic.main.fragment_create_cocktail.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -37,7 +39,11 @@ class CreateCocktailFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
         val dataSource = CocktailDatabase.getInstance(application).cocktailDao
-        val viewModelFactory = CocktailViewModelFactory(dataSource, application)
+        val viewModelFactory =
+            CocktailViewModelFactory(
+                dataSource,
+                application
+            )
 
 
 
@@ -73,7 +79,12 @@ class CreateCocktailFragment : Fragment() {
         }
 
         binding.addCocktail.setOnClickListener{
-            viewModel.addCocktail(Cocktail(binding.cocktailNaam.text.toString(), binding.cocktailCategory.selectedItem.toString()))
+            viewModel.addCocktail(
+                Cocktail(
+                    binding.cocktailNaam.text.toString(),
+                    binding.cocktailCategory.selectedItem.toString()
+                )
+            )
         }
 
         return binding.root

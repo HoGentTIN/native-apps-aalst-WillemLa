@@ -1,4 +1,4 @@
-package com.example.mycocktails
+package com.example.mycocktails.screens.cocktail
 
 
 import android.annotation.SuppressLint
@@ -8,12 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mycocktails.R
+import com.example.mycocktails.database.CocktailDatabase
 import com.example.mycocktails.databinding.FragmentCocktailBinding
 
 /**
@@ -29,7 +30,8 @@ class CocktailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding: FragmentCocktailBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_cocktail, container, false)
+        val binding: FragmentCocktailBinding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_cocktail, container, false)
         binding.RecyclerViewId.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
 
 
@@ -38,13 +40,18 @@ class CocktailFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
         val dataSource = CocktailDatabase.getInstance(application).cocktailDao
-        val viewModelFactory = CocktailViewModelFactory(dataSource, application, args.categoryName, args.cocktailName)
+        val viewModelFactory = CocktailViewModelFactory(
+            dataSource,
+            application,
+            args.categoryName,
+            args.cocktailName
+        )
         val CocktailViewModel = ViewModelProviders.of(this, viewModelFactory).get(CocktailViewModel::class.java)
         binding.cocktailViewModel = CocktailViewModel
         binding.setLifecycleOwner(this)
 
 
-        viewModel = ViewModelProviders.of(this).get(com.example.mycocktails.CocktailViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(com.example.mycocktails.screens.cocktail.CocktailViewModel::class.java)
 
         /*CocktailViewModel.cocktails.observe(this, Observer {
                 cocktail -> cocktail?.let{
@@ -54,13 +61,18 @@ class CocktailFragment : Fragment() {
 
         //DEZE WORDT NOG GEFIXT//viewModel.setCocktails(args.categoryName, args.cocktailName)
 
-        val adapter = CocktailAdapter(CocktailListener {
-            cocktailId -> CocktailViewModel.onCocktailClicked(cocktailId)
-        })
+        val adapter =
+            CocktailAdapter(CocktailListener { cocktailId ->
+                CocktailViewModel.onCocktailClicked(cocktailId)
+            })
 
         CocktailViewModel.navigateToCocktail.observe(this, Observer { id ->
             id?.let{
-                findNavController().navigate(CocktailFragmentDirections.actionCocktailFragmentToRecipeFragment(id))
+                findNavController().navigate(
+                    CocktailFragmentDirections.actionCocktailFragmentToRecipeFragment(
+                        id
+                    )
+                )
                 viewModel.onNavigated()//anders kan je niet terug
             }
         })

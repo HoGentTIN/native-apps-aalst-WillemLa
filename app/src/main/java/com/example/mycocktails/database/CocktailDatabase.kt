@@ -1,10 +1,11 @@
-package com.example.mycocktails
+package com.example.mycocktails.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import java.security.AccessControlContext
+import com.example.mycocktails.domain.Category
+import com.example.mycocktails.domain.Cocktail
 
 @Database(entities = [Cocktail::class, Category::class], version = 3, exportSchema = false)
 abstract class CocktailDatabase : RoomDatabase() {

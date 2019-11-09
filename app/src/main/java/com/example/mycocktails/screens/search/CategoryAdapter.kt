@@ -1,4 +1,4 @@
-package com.example.mycocktails
+package com.example.mycocktails.screens.search
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,16 +7,17 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mycocktails.SearchFragmentDirections
 
 import com.example.mycocktails.databinding.CategorieLayoutBinding
-import com.example.mycocktails.databinding.ListLayoutBinding
+import com.example.mycocktails.domain.Category
 
-class CategoryAdapter( val clickListener: CategoryListener): ListAdapter<Category, CategoryAdapter.ViewHolder>(CategoryDiffCallback()) {
+class CategoryAdapter( val clickListener: CategoryListener): ListAdapter<Category, CategoryAdapter.ViewHolder>(
+    CategoryDiffCallback()
+) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val category: Category = getItem(position)
-        holder.bind(category, position, clickListener)
+        holder.bind(category, clickListener)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,7 +35,6 @@ class CategoryAdapter( val clickListener: CategoryListener): ListAdapter<Categor
 
         fun bind(
             category: Category,
-            position: Int,
             clickListener: CategoryListener
         ) {
 

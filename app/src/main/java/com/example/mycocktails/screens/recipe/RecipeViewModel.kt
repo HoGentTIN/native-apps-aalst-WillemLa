@@ -1,7 +1,9 @@
-package com.example.mycocktails
+package com.example.mycocktails.screens.recipe
 
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
+import com.example.mycocktails.database.CocktailDao
+import com.example.mycocktails.domain.Cocktail
 import kotlinx.coroutines.Job
 
 class RecipeViewModel(private val cocktailKey: Long = 0L, dataSource: CocktailDao) : ViewModel() {

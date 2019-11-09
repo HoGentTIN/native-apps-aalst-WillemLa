@@ -1,4 +1,4 @@
-package com.example.mycocktails
+package com.example.mycocktails.screens.recipe
 
 
 import android.os.Bundle
@@ -6,11 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mycocktails.databinding.FragmentCocktailBinding
+import com.example.mycocktails.R
+import com.example.mycocktails.database.CocktailDatabase
 import com.example.mycocktails.databinding.FragmentRecipeBinding
 
 /**
@@ -33,7 +32,11 @@ class RecipeFragment : Fragment() {
 //        binding.CocktailTitel.text = args.cocktailId.toString()
         val application = requireNotNull(this.activity).application
         val dataSource = CocktailDatabase.getInstance(application).cocktailDao
-        val viewModelFactory = RecipeViewModelFactory(args.cocktailId, dataSource )
+        val viewModelFactory =
+            RecipeViewModelFactory(
+                args.cocktailId,
+                dataSource
+            )
         val RecipeViewModel = ViewModelProviders.of(this, viewModelFactory).get(RecipeViewModel::class.java)
         binding.recipeViewModel = RecipeViewModel
         binding.setLifecycleOwner(this)

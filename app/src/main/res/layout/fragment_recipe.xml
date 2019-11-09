@@ -92,7 +92,7 @@
     <data>
         <variable
             name="recipeViewModel"
-            type="com.example.mycocktails.RecipeViewModel" />
+            type="com.example.mycocktails.screens.recipe.RecipeViewModel" />
     </data>
 
 </layout>
