@@ -1,6 +1,8 @@
 package com.example.mycocktails.screens.create
 
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +15,8 @@ import com.example.mycocktails.R
 import com.example.mycocktails.database.CocktailDatabase
 import com.example.mycocktails.databinding.FragmentCreateCocktailBinding
 import com.example.mycocktails.domain.Cocktail
+import com.example.mycocktails.domain.CocktailRepository
+import com.example.mycocktails.network.CocktailApi
 import com.example.mycocktails.screens.cocktail.CocktailViewModel
 import com.example.mycocktails.screens.cocktail.CocktailViewModelFactory
 import com.google.android.material.textfield.TextInputEditText
@@ -37,11 +41,15 @@ class CreateCocktailFragment : Fragment() {
         var table = binding.TableLayoutId
         var addCocktail = binding.addCocktail
 
+        val cocktailApiService = CocktailApi.retrofitService
+        val connectivityManager = requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+
         val application = requireNotNull(this.activity).application
         val dataSource = CocktailDatabase.getInstance(application).cocktailDao
         val viewModelFactory =
             CocktailViewModelFactory(
-                dataSource,
+                CocktailRepository(dataSource, cocktailApiService, connectivityManager),
                 application
             )
 

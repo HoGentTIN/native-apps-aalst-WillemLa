@@ -2,6 +2,8 @@ package com.example.mycocktails.screens.cocktail
 
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,6 +18,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mycocktails.R
 import com.example.mycocktails.database.CocktailDatabase
 import com.example.mycocktails.databinding.FragmentCocktailBinding
+import com.example.mycocktails.domain.CocktailRepository
+import com.example.mycocktails.network.CocktailApi
 
 /**
  * A simple [Fragment] subclass.
@@ -37,11 +41,13 @@ class CocktailFragment : Fragment() {
 
         var args = CocktailFragmentArgs.fromBundle(arguments!!)
 
+        val cocktailApiService = CocktailApi.retrofitService
+        val connectivityManager = requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
         val application = requireNotNull(this.activity).application
         val dataSource = CocktailDatabase.getInstance(application).cocktailDao
         val viewModelFactory = CocktailViewModelFactory(
-            dataSource,
+            CocktailRepository(dataSource, cocktailApiService, connectivityManager),
             application,
             args.categoryName,
             args.cocktailName
@@ -79,11 +85,12 @@ class CocktailFragment : Fragment() {
 
         binding.RecyclerViewId.adapter = adapter
 
+        /* TODO
         CocktailViewModel.cocktails.observe(viewLifecycleOwner, Observer {
             it?.let {
                 adapter.submitList(it)
             }
-        })
+        })*/
 
         /*
         if (args.categoryName != null){
