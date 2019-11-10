@@ -8,14 +8,14 @@ import com.example.mycocktails.domain.Cocktail
 @Dao
 interface CocktailDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(cocktail: Cocktail)
 
-    @Update
+    @Update(onConflict = OnConflictStrategy.IGNORE)
     fun update(cocktail: Cocktail)
 
     @Query("SELECT * from personal_cocktail_table")
-    fun getAll(): LiveData<List<Cocktail>>
+    fun getAll(): List<Cocktail>
 
     @Query("SELECT * from personal_cocktail_table WHERE cocktailCategory = :category")
     fun getByCategory(category: String): LiveData<List<Cocktail>>
