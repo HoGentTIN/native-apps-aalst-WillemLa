@@ -3,8 +3,7 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
+>
     <data>
         <variable
             name="cocktail"
@@ -18,73 +17,59 @@
         android:background="@drawable/mycocktailbackground">
 
         <TextView
-            android:id="@+id/CocktailTitel"
+            android:id="@+id/RecipeFragment_TextView_CocktailTitle"
+            android:theme="@style/Screen_Title_Style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:text="TextView"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="36sp"
             app:cocktailName="@{cocktail}"
-            app:layout_constraintBottom_toTopOf="@+id/IngrediëntenTekst"
+            app:layout_constraintBottom_toTopOf="@+id/RecipeFragment_TextView_IngredientsSubtitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/IngrediëntenTekst"
+            android:id="@+id/RecipeFragment_TextView_IngredientsSubtitle"
+            android:theme="@style/Recipe_SubTitle_TextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="Ingredienten"
-            android:textSize="18sp"
+            android:text="@string/RecipeFragment_TextView_SubTitle_Ingredients"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
         <TextView
-            android:id="@+id/Ingrediënten"
+            android:id="@+id/RecipeFragment_TextView_Ingredients"
+            android:theme="@style/Recipe_RecipeText_TextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:text="TextView"
-            app:cocktailName="@{cocktail}"
+            app:cocktailIngredientsFormatted="@{cocktail}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/IngrediëntenTekst" />
+            app:layout_constraintTop_toBottomOf="@+id/RecipeFragment_TextView_IngredientsSubtitle" />
 
         <TextView
-            android:id="@+id/WerkwijzeTekst"
+            android:id="@+id/RecipeFragment_TextView_InstructionsSubtitle"
+            android:theme="@style/Recipe_SubTitle_TextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:text="Werkwijze"
-            android:textSize="18sp"
+            android:text="@string/RecipeFragment_TextView_SubTitle_Instructions"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Ingrediënten" />
+            app:layout_constraintTop_toBottomOf="@+id/RecipeFragment_TextView_Ingredients" />
 
         <TextView
-            android:id="@+id/Werkwijze"
+            android:id="@+id/RecipeFragment_TextView_Instructions"
+            android:theme="@style/Recipe_RecipeText_TextView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="TextView"
-            app:cocktailName="@{cocktail}"
+            app:cocktailInstructions="@{cocktail}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/WerkwijzeTekst" />
+            app:layout_constraintTop_toBottomOf="@+id/RecipeFragment_TextView_InstructionsSubtitle" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"

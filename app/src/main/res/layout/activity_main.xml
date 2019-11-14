@@ -10,17 +10,17 @@
         android:layout_height="match_parent"> -->
 
     <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawerLayout"
+        android:id="@+id/ActivityMain_DrawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fragment_container"
+        android:id="@+id/ActivityMain_FragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <fragment
-            android:id="@+id/myNavHostFragment"
+            android:id="@+id/ActivityMain_NavHostFragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -36,7 +36,7 @@
 
 
             <com.google.android.material.navigation.NavigationView
-                android:id="@+id/navView"
+                android:id="@+id/ActivityMain_NavigationView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"

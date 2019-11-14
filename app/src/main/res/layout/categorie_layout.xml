@@ -20,11 +20,6 @@
         android:gravity="center"
         android:paddingBottom="10dp">
 
-        android:id="@+id/categoryCard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="15dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
@@ -41,21 +36,21 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/CategoryImgId"
+                    android:id="@+id/CategoryLayout_ImageButton_CategoryImage"
                     android:layout_width="175dp"
                     android:layout_height="175dp"
                     android:background="@android:color/background_light"
                     android:onClick="@{() -> clickListener.onClick(category)}"
                     app:categoryImage="@{category}"
-                    app:srcCompat="@android:drawable/btn_star_big_on" />
+                    app:srcCompat="@android:drawable/btn_star_big_on"
+                    android:contentDescription="@string/SearchFragment_Image_Categroy"   />
 
                 <Button
-                    android:id="@+id/CategoryBtnId"
+                    android:id="@+id/CategoryLayout_Button_CategoryName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/extracolor"
                     android:onClick="@{() -> clickListener.onClick(category)}"
-                    android:text="Button"
                     android:textColor="@android:color/background_light"
                     app:categoryName="@{category}" />
             </LinearLayout>

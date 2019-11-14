@@ -31,32 +31,25 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/CreateCocktailFragment_TextView_Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:gravity="center"
-                    android:text="Personal Cocktail"
+                    android:text="@string/CreateCocktailFragment_TextView_Title"
                     android:textColor="@android:color/black"
-                    android:textSize="24sp" />
+                    android:theme="@style/Screen_Title_Style" />
 
-                <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/CreateCocktailFragment_TextView_CocktailName"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/cocktailNaam"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:hint="Naam cocktail"
-                        android:textColor="@android:color/black" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:hint="Naam cocktail"
+                    android:textColor="@android:color/black" />
 
                 <TableLayout
-                    android:id="@+id/TableLayoutId"
-                    android:layout_width="match_parent"
+                    android:id="@+id/CreateCocktailFragment_TableLayout_IngredientTable"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="20dp"
@@ -68,53 +61,469 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/Ingrediënt1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Ingrediënt 1"
-                                android:tag="Ingrediënt1"
-                                android:textColor="@android:color/black" />
-                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hoeveelheid 1"
+                            android:tag="HoeveelheidIngredient1"
+                            android:textColor="@android:color/black" />
 
                     </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingredient 1"
+                            android:tag="Ingredient1"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hoeveelheid 2"
+                            android:tag="HoeveelheidIngredient1"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Ingredient 2"
+                            android:tag="Ingredient2"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hoeveelheid 3"
+                            android:tag="HoeveelheidIngredient3"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingredient 3"
+                            android:tag="Ingredient3"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hoeveelheid 4"
+                            android:tag="HoeveelheidIngredient1"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingredient 4"
+                            android:tag="Ingredient2"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hoeveelheid 5"
+                            android:tag="HoeveelheidIngredient1"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingredient 5"
+                            android:tag="Ingredient2"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hoeveelheid 6"
+                            android:tag="HoeveelheidIngredient1"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingredient 6"
+                            android:tag="Ingredient2"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hoeveelheid 7"
+                            android:tag="HoeveelheidIngredient1"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingredient 7"
+                            android:tag="Ingredient2"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hoeveelheid 8"
+                            android:tag="HoeveelheidIngredient1"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingredient 8"
+                            android:tag="Ingredient2"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount9"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="Hoeveelheid 9"
+                   android:tag="HoeveelheidIngredient1"
+                   android:textColor="@android:color/black" />
+           </com.google.android.material.textfield.TextInputLayout>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingredient 9"
+                            android:tag="Ingredient2"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hoeveelheid 10"
+                            android:tag="HoeveelheidIngredient1"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingredient 10"
+                            android:tag="Ingredient2"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hoeveelheid 11"
+                            android:tag="HoeveelheidIngredient1"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingredient 11"
+                            android:tag="Ingredient2"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hoeveelheid 12"
+                            android:tag="HoeveelheidIngredient1"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingredient 12"
+                            android:tag="Ingredient2"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hoeveelheid 13"
+                            android:tag="HoeveelheidIngredient1"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingredient 13"
+                            android:tag="Ingredient2"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount14"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hoeveelheid 14"
+                            android:tag="HoeveelheidIngredient1"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient14"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingredient 14"
+                            android:tag="Ingredient2"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount15"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hoeveelheid 15"
+                            android:tag="HoeveelheidIngredient1"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_Ingredient15"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingredient 15"
+                            android:tag="Ingredient2"
+                            android:textColor="@android:color/black" />
+
+                    </TableRow>
+
+
+
+
+
+
+
+
 
                 </TableLayout>
 
                 <Button
-                    android:id="@+id/addIngredientBtn"
+                    android:id="@+id/CreateCocktailFragment_Button_AddIngredient"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="Ingrediënt toevoegen" />
+                    android:theme="@style/Project_Button_BlackText"
+                    android:text="@string/CreateCocktailFragment_Button_AddIngredient" />
 
-                <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/CreateCocktailFragment_TextInput_CocktailInstructions"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/cocktailWerkwijze"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="start"
-                        android:hint="Werkwijze"
-                        android:inputType="textMultiLine"
-                        android:minHeight="150dp"
-                        android:textAlignment="viewStart"
-                        android:textColor="@android:color/black" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="start"
+                    android:hint="Werkwijze"
+                    android:inputType="textMultiLine"
+                    android:minHeight="150dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/black" />
 
                 <Spinner
-                    android:id="@+id/cocktailCategory"
+                    android:id="@+id/CreateCocktailFragment_Spinner_CocktailCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -125,13 +534,14 @@
                     />
 
                 <Button
-                    android:id="@+id/addCocktail"
+                    android:id="@+id/CreateCocktailFragment_Button_AddCocktail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:text="Cocktail toevoegen"
-                    android:textColor="@android:color/black" />
+                    android:text="@string/CreateCocktailFragment_Button_AddCocktail"
+                    android:theme="@style/Project_Button_BlackText"
+                    />
 
             </LinearLayout>
         </ScrollView>
