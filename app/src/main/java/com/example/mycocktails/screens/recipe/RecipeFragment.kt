@@ -12,6 +12,9 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.mycocktails.R
 import com.example.mycocktails.database.CocktailDatabase
 import com.example.mycocktails.databinding.FragmentRecipeBinding
+import com.example.mycocktails.domain.RecipeRepository
+import com.example.mycocktails.screens.cocktail.CocktailAdapter
+import com.example.mycocktails.screens.cocktail.CocktailListener
 
 /**
  * A simple [Fragment] subclass.
@@ -33,19 +36,20 @@ class RecipeFragment : Fragment() {
         val dataSource = CocktailDatabase.getInstance(application).cocktailDao
         val viewModelFactory =
             RecipeViewModelFactory(
+                dataSource,
                 args.cocktailId,
                 dataSource
             )
 
         val RecipeViewModel = ViewModelProviders.of(this, viewModelFactory).get(RecipeViewModel::class.java)
 
-        RecipeViewModel.cocktail.observe(viewLifecycleOwner, Observer {
-            it?.let {
+        RecipeViewModel.cocktail?.observe(this, Observer {
                 binding.cocktail = it
-            }
-        })
+        }
+        )
 
         binding.setLifecycleOwner(this)
+
 
         return binding.root;
     }
