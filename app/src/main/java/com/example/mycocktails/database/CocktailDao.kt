@@ -15,20 +15,20 @@ interface CocktailDao {
     suspend fun update(cocktail: Cocktail)
 
     @Query("SELECT * from personal_cocktail_table")
-    fun getAll(): LiveData<List<Cocktail>>
+    suspend fun getAll(): List<Cocktail>
 
     @Query("SELECT * from personal_cocktail_table WHERE cocktailCategory = :category")
-    fun getByCategory(category: String): LiveData<List<Cocktail>>
+    suspend fun getByCategory(category: String): List<Cocktail>
 
     @Query("SELECT * from personal_cocktail_table WHERE cocktailName LIKE  :cocktailName")
-    fun getByCocktailName(cocktailName: String): LiveData<List<Cocktail>>
+    suspend fun getByCocktailName(cocktailName: String): List<Cocktail>
 
     @Query("DELETE FROM personal_cocktail_table WHERE cocktailName = :name")
-    suspend fun delete(name: String)
+    fun delete(name: String)
 
     @Query("DELETE FROM personal_cocktail_table")
-    suspend fun clear()
+    fun clear()
 
     @Query("SELECT * from personal_cocktail_table WHERE cocktailId = :key")
-    fun getCocktailWithId(key: Long): LiveData<Cocktail>
+    suspend fun getCocktailWithId(key: Long): Cocktail
 }

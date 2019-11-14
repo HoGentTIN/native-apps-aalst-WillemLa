@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "drinks_table")
 data class Drinks (
 
-    var drinks: List<Cocktail> = ArrayList<Cocktail>(),
+    var drinks: List<Cocktail>? = ArrayList(),
 
     @PrimaryKey(autoGenerate = true)
     var drinksId: Long = 0L

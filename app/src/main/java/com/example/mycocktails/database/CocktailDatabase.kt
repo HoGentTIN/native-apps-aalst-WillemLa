@@ -6,8 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.mycocktails.domain.Category
 import com.example.mycocktails.domain.Cocktail
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-@Database(entities = [Cocktail::class, Category::class], version = 3, exportSchema = false)
+@Database(entities = [Cocktail::class, Category::class], version = 12, exportSchema = false)
 abstract class CocktailDatabase : RoomDatabase() {
 
     abstract val cocktailDao: CocktailDao
@@ -31,13 +35,21 @@ abstract class CocktailDatabase : RoomDatabase() {
                         CocktailDatabase::class.java,
                         "cocktail_database"
                     ).fallbackToDestructiveMigration().build()
+                    instance.populateInitialData()
                     INSTANCE = instance
                 }
                 return instance
             }
         }
     }
-
-
-
+    private fun populateInitialData() {
+        GlobalScope.launch {
+            withContext(Dispatchers.IO) {
+                //dummydata mogelijk
+                cocktailDao.clear()
+                var c = Cocktail("test", "Ordinary Drink", "TestInstructions", "gin" ,"vodka",null,null,null,null,null,null,null,null,null,null,null,null, null, "2dl" ,"2dl",null,null,null,null,null,null,null,null,null,null,null,null, null)
+                cocktailDao.insert(c)
+            }
+        }
+        }
 }
