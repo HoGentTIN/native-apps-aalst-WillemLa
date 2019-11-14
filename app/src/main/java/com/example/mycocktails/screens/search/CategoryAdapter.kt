@@ -56,44 +56,6 @@ class CategoryAdapter( val clickListener: CategoryListener): ListAdapter<Categor
             }
         }
  }
-
-
-
-/*
-        fun bind(category: Category, position: Int) {
-
-            image.setImageResource(viewModel.getImageResource(category.name))
-
-            textViewName.text = category.name
-            textViewName.setOnClickListener{ navController.navigate(
-                SearchFragmentDirections.actionSearchFragmentToCocktailFragment(
-                    category.name,
-                    null
-                )
-            )}
-            image.setOnClickListener{ navController.navigate(
-                SearchFragmentDirections.actionSearchFragmentToCocktailFragment(
-                    category.name,
-                    null
-                )
-            )}
-
-        }
-*/
-    /*
-        companion object{
-            fun from(parent: ViewGroup, viewModel: SearchViewModel): ViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = CategorieLayoutBinding.inflate(layoutInflater, parent, false) //fix
-                val navController = parent.findNavController();
-                return ViewHolder(
-                    binding,
-                    navController,
-                    viewModel
-                );
-            }
-        }
-*/
     }
 
 class CategoryDiffCallback : DiffUtil.ItemCallback<Category>() {
