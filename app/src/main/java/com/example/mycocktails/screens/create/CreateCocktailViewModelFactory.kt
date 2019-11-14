@@ -1,4 +1,4 @@
-package com.example.mycocktails.screens.cocktail
+package com.example.mycocktails.screens.create
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
@@ -7,19 +7,17 @@ import com.example.mycocktails.database.CocktailDao
 import com.example.mycocktails.domain.CocktailRepository
 import java.lang.IllegalArgumentException
 
-class CocktailViewModelFactory(
-    private val cocktailRepository: CocktailRepository, private val application: Application, val categoryName: String? = null, val cocktailName: String? = null): ViewModelProvider.Factory {
+class CreateCocktailViewModelFactory(
+    private val cocktailRepository: CocktailRepository, private val application: Application): ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(CocktailViewModel::class.java)){
-            return CocktailViewModel(
+        if (modelClass.isAssignableFrom(CreateCocktailViewModel::class.java)){
+            return CreateCocktailViewModel(
                 cocktailRepository,
-                application,
-                categoryName,
-                cocktailName
+                application
             ) as T
         }
-        throw IllegalArgumentException("CocktailViewModelFactory - Onbekende ViewModel Class")
+        throw IllegalArgumentException("CreateCocktailViewModelFactory - Onbekende ViewModel Class")
     }
 
 }

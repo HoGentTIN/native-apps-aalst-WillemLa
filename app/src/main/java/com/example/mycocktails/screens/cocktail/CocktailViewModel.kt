@@ -1,17 +1,12 @@
 package com.example.mycocktails.screens.cocktail
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.mycocktails.database.CocktailDao
 import com.example.mycocktails.domain.Category
 import com.example.mycocktails.domain.Cocktail
 import com.example.mycocktails.domain.CocktailRepository
 import kotlinx.coroutines.*
-
-//lateinit var _cocktails: LiveData<List<Cocktail>>
 
 //verschil thread = coroutines zijn te stoppen + deze zijn light-weight
 class CocktailViewModel(val cocktailRepository: CocktailRepository, application: Application, val categoryName: String?, val cocktailName: String?) :
@@ -50,13 +45,19 @@ class CocktailViewModel(val cocktailRepository: CocktailRepository, application:
     }
 
     private suspend fun getAllCocktailsFromDatabase(){
-        _cocktails.value = cocktailRepository.getAllCocktails()
+        if (categoryName != null){
+            _cocktails.value = cocktailRepository.getAllCocktailsByCategory(categoryName!!)
+        }
+        else{
+            _cocktails.value = cocktailRepository.getAllCocktailsByName(cocktailName!!)
+        }
     }
 
     private suspend fun insert(cocktail: Cocktail) = cocktailRepository.insert(cocktail)
     private suspend fun delete(cocktail: Cocktail) = cocktailRepository.delete(cocktail)
     private suspend fun update(cocktail: Cocktail) = cocktailRepository.update(cocktail)
     private suspend fun clear() = cocktailRepository.clear()
+
 
     init {
         uiScope.launch {

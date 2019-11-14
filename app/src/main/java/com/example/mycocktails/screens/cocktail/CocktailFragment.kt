@@ -59,7 +59,6 @@ class CocktailFragment : Fragment() {
 
 
         viewModel = ViewModelProviders.of(this).get(com.example.mycocktails.screens.cocktail.CocktailViewModel::class.java)
-
         /*CocktailViewModel.cocktails.observe(this, Observer {
                 cocktail -> cocktail?.let{
             viewModel.setCocktails(args.categoryName, args.cocktailName)
@@ -89,18 +88,9 @@ class CocktailFragment : Fragment() {
         CocktailViewModel.cocktails.observe(viewLifecycleOwner, Observer {
             it?.let {
                 adapter.submitList(it)
+                binding.CocktailFragmentTextViewLoading.visibility = View.GONE
             }
         })
-
-        /*
-        if (args.categoryName != null){
-            binding.RecyclerViewId.adapter =
-                CocktailAdapter(viewModel.cocktails.value!!.filter { c -> c.category == args.categoryName })
-        }else{
-            binding.RecyclerViewId.adapter =
-                CocktailAdapter(viewModel.cocktails.value!!.filter { c ->args.cocktailName!!.contains(c.name)})
-        }
-        */
 
         return binding.root
     }
