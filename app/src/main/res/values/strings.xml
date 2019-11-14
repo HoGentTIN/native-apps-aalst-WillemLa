@@ -1,8 +1,17 @@
 <resources>
     <string name="app_name">MyCocktails</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- android:text="@string/SearchFragment_Image_Categroy" -->
+
+    <string name="CreateCocktailFragment_TextView_Title">Personal Cocktail</string>
+    <string name="CreateCocktailFragment_Button_AddIngredient">Add ingredient</string>
+    <string name="CreateCocktailFragment_Button_AddCocktail">Add Cocktail</string>
+    <string name="RecipeFragment_TextView_SubTitle_Ingredients">Ingredients</string>
+    <string name="RecipeFragment_TextView_SubTitle_Instructions">Instructions</string>
+    <string name="SearchFragment_TextView_SearchTitle">Search</string>
+    <string name="SearchFragment_TextView_CategoryTitle">Category</string>
+    <string name="CocktailFragment_Image_Loading">Loading...</string>
+    <string name="SearchFragment_Image_Categroy">An image of the cocktail</string>
 
     <string-array name="soortenArray">
         <item>Ordinary Drink</item>
@@ -16,6 +25,5 @@
         <item>Punch / Party Drink</item>
         <item>Beer</item>
         <item>Soft Drink / Soda</item>
-
     </string-array>
 </resources>

@@ -36,6 +36,7 @@ class CocktailFragment : Fragment() {
 
         val binding: FragmentCocktailBinding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_cocktail, container, false)
+        //TODO
         binding.RecyclerViewId.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
 
 
@@ -85,12 +86,11 @@ class CocktailFragment : Fragment() {
 
         binding.RecyclerViewId.adapter = adapter
 
-        /* TODO
         CocktailViewModel.cocktails.observe(viewLifecycleOwner, Observer {
             it?.let {
                 adapter.submitList(it)
             }
-        })*/
+        })
 
         /*
         if (args.categoryName != null){

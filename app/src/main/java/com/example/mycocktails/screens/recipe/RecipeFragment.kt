@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.mycocktails.R
 import com.example.mycocktails.database.CocktailDatabase
@@ -25,8 +26,6 @@ class RecipeFragment : Fragment() {
         val binding: FragmentRecipeBinding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_recipe, container, false)
 
-
-
         var args = RecipeFragmentArgs.fromBundle(arguments!!)
 
 //        binding.CocktailTitel.text = args.cocktailId.toString()
@@ -37,10 +36,16 @@ class RecipeFragment : Fragment() {
                 args.cocktailId,
                 dataSource
             )
-        val RecipeViewModel = ViewModelProviders.of(this, viewModelFactory).get(RecipeViewModel::class.java)
-        binding.recipeViewModel = RecipeViewModel
-        binding.setLifecycleOwner(this)
 
+        val RecipeViewModel = ViewModelProviders.of(this, viewModelFactory).get(RecipeViewModel::class.java)
+
+        RecipeViewModel.cocktail.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                binding.cocktail = it
+            }
+        })
+
+        binding.setLifecycleOwner(this)
 
         return binding.root;
     }

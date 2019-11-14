@@ -8,9 +8,9 @@ import com.example.mycocktails.network.CocktailApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class CocktailRepository (private val cocktailDao: CocktailDao,
-                          private val cocktailApiService: CocktailApiService,
-                          private val connectivityManager: ConnectivityManager
+class RecipeRepository (private val cocktailDao: CocktailDao,
+                        private val cocktailApiService: CocktailApiService,
+                        private val connectivityManager: ConnectivityManager
 ){
     suspend fun getAllCocktails() : List<Cocktail>{
         if (connectedToInternet()){
