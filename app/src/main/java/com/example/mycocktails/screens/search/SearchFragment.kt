@@ -55,7 +55,7 @@ class SearchFragment : Fragment() {
             findNavController().navigate(
                 SearchFragmentDirections.actionSearchFragmentToCocktailFragment(
                     null,
-                    SearchBar.text.toString()
+                    SearchFragment_TextInput_SearchBar.text.toString()
                 )
             )
         }

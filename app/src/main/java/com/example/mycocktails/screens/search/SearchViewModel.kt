@@ -13,14 +13,6 @@ class SearchViewModel(val database: CategoryDao, application: Application) :   A
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     val category = database.getAll()
-    val _navigatoToCategory = MutableLiveData<Category>()
-
-    val navigate: LiveData<Category>
-        get() = _navigatoToCategory
-
-    fun doneNavigating() {
-        _navigatoToCategory.value = null
-    }
 
     fun addCocktail(category: Category) {
         uiScope.launch {
@@ -62,7 +54,6 @@ class SearchViewModel(val database: CategoryDao, application: Application) :   A
     init {
         uiScope.launch {
             clear()
-
             addCocktail(Category("Ordinary Drink"))
             addCocktail(Category("Cocktail"))
             addCocktail(Category("Milk / Float / Shake"))
@@ -74,8 +65,6 @@ class SearchViewModel(val database: CategoryDao, application: Application) :   A
             addCocktail(Category("Punch / Party Drink"))
             addCocktail(Category("Beer"))
             addCocktail(Category("Soft Drink / Soda"))
-
-
         }
     }
 

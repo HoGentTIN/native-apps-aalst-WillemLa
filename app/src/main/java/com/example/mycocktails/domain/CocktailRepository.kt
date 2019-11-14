@@ -12,25 +12,36 @@ class CocktailRepository (private val cocktailDao: CocktailDao,
                           private val cocktailApiService: CocktailApiService,
                           private val connectivityManager: ConnectivityManager
 ){
-    suspend fun getAllCocktails() : List<Cocktail>{
-        if (connectedToInternet()){
-            val drink = cocktailApiService.getCocktails()
-            val cocktails = drink.drinks
+    suspend fun getAllCocktailsByCategory( categoryName: String) : List<Cocktail>{
+        if (connectedToInternet()) {
+            val drink = cocktailApiService.getCocktails(categoryName)
+            var cocktails = ArrayList<Cocktail>()
+            drink.drinks!!.forEach {
+                cocktail ->
+                var cocktailToAdd: Cocktail = cocktailApiService.getCocktailsById(cocktail.cocktailId.toString()).drinks!![0]
+                cocktails.add(cocktailToAdd)
+            }
             saveToDatabase(cocktails)
-            if (cocktailDao.getAll().value == null){
-                return cocktails
-            }else{
-                return (cocktails + cocktailDao.getAll().value!!).distinct()
+            return (cocktailDao.getByCategory(categoryName) + cocktails )
+        }
+        return cocktailDao.getAll()
+    }
+
+    suspend fun getAllCocktailsByName( cocktailName: String) : List<Cocktail>{
+        if (connectedToInternet()) {
+            val drink: Drinks? = cocktailApiService.getCocktailsByName(cocktailName)
+            if (drink != null && !drink.drinks.isNullOrEmpty()){
+                var cocktails = ArrayList<Cocktail>()
+                drink!!.drinks!!.forEach { cocktail ->
+                    var cocktailToAdd: Cocktail =
+                        cocktailApiService.getCocktailsById(cocktail.cocktailId.toString()).drinks!![0]
+                    cocktails.add(cocktailToAdd)
+                }
+                saveToDatabase(cocktails)
+                return (cocktailDao.getByCocktailName(cocktailName)!! + cocktails)
             }
         }
-        else{
-            if (cocktailDao.getAll().value!! == null) {
-                return  ArrayList<Cocktail>()
-            }
-            else{
-                return cocktailDao.getAll().value!!
-            }
-        }
+        return cocktailDao.getAll()
     }
 
     suspend fun delete(cocktail: Cocktail) = cocktailDao.delete(cocktail.name)

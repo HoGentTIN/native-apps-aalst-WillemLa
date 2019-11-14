@@ -23,8 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        //bottomNav = binding.bottomNav
-        drawerLayout = binding.drawerLayout
+        drawerLayout = binding.ActivityMainDrawerLayout
 
 /*
         val host: NavHostFragment = supportFragmentManager
@@ -34,9 +33,9 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(bottomNav, navController)
         NavigationUI.setupActionBarWithNavController(this, navController)
 */
-        val navController = this.findNavController(R.id.myNavHostFragment)
+        val navController = this.findNavController(R.id.ActivityMain_NavHostFragment)
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
-        NavigationUI.setupWithNavController(binding.navView, navController)
+        NavigationUI.setupWithNavController(binding.ActivityMainNavigationView, navController)
 
 
 
@@ -63,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     override fun onSupportNavigateUp(): Boolean {
-        val navController = this.findNavController(R.id.myNavHostFragment)
+        val navController = this.findNavController(R.id.ActivityMain_NavHostFragment)
         return NavigationUI.navigateUp(navController, drawerLayout)
     }
 }
