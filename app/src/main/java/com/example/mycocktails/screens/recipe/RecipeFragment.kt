@@ -31,7 +31,6 @@ class RecipeFragment : Fragment() {
 
         var args = RecipeFragmentArgs.fromBundle(arguments!!)
 
-//        binding.CocktailTitel.text = args.cocktailId.toString()
         val application = requireNotNull(this.activity).application
         val dataSource = CocktailDatabase.getInstance(application).cocktailDao
         val viewModelFactory =

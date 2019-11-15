@@ -37,13 +37,11 @@ class CreateCocktailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflate layout voor fragment
         val binding: FragmentCreateCocktailBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_create_cocktail, container, false
         )
-
-        var table = binding.TableLayoutId
 
         val cocktailApiService = CocktailApi.retrofitService
         val connectivityManager =
@@ -62,37 +60,35 @@ class CreateCocktailFragment : Fragment() {
 
         viewModel = CreateCocktailViewModel
 
-
         var ExtraTextInputEditTextFields = arrayListOf<TextInputEditText>(
-
-            binding.CreateCocktailFragment_TextInput_IngredientAmount2,
-            binding.Ingredient2,
-            binding.CreateCocktailFragment_TextInput_IngredientAmount3,
-            binding.Ingredient3,
-            binding.CreateCocktailFragment_TextInput_IngredientAmount4,
-            binding.Ingredient4,
-            binding.CreateCocktailFragment_TextInput_IngredientAmount5,
-            binding.Ingredient5,
-            binding.CreateCocktailFragment_TextInput_IngredientAmount6,
-            binding.Ingredient6,
-            binding.CreateCocktailFragment_TextInput_IngredientAmount7,
-            binding.Ingredient7,
-            binding.CreateCocktailFragment_TextInput_IngredientAmount8,
-            binding.Ingredient8,
-            binding.CreateCocktailFragment_TextInput_IngredientAmount9,
-            binding.Ingredient9,
-            binding.CreateCocktailFragment_TextInput_IngredientAmount10,
-            binding.Ingredient10,
-            binding.CreateCocktailFragment_TextInput_IngredientAmount11,
-            binding.Ingredient11,
-            binding.CreateCocktailFragment_TextInput_IngredientAmount12,
-            binding.Ingredient12,
-            binding.CreateCocktailFragment_TextInput_IngredientAmount13,
-            binding.Ingredient13,
-            binding.CreateCocktailFragment_TextInput_IngredientAmount14,
-            binding.Ingredient14,
-            binding.CreateCocktailFragment_TextInput_IngredientAmount15,
-            binding.Ingredient15
+            binding.CreateCocktailFragmentTextInputIngredientAmount2,
+            binding.CreateCocktailFragmentTextInputIngredient2,
+            binding.CreateCocktailFragmentTextInputIngredientAmount3,
+            binding.CreateCocktailFragmentTextInputIngredient3,
+            binding.CreateCocktailFragmentTextInputIngredientAmount4,
+            binding.CreateCocktailFragmentTextInputIngredient4,
+            binding.CreateCocktailFragmentTextInputIngredientAmount5,
+            binding.CreateCocktailFragmentTextInputIngredient5,
+            binding.CreateCocktailFragmentTextInputIngredientAmount6,
+            binding.CreateCocktailFragmentTextInputIngredient6,
+            binding.CreateCocktailFragmentTextInputIngredientAmount7,
+            binding.CreateCocktailFragmentTextInputIngredient7,
+            binding.CreateCocktailFragmentTextInputIngredientAmount8,
+            binding.CreateCocktailFragmentTextInputIngredient8,
+            binding.CreateCocktailFragmentTextInputIngredientAmount9,
+            binding.CreateCocktailFragmentTextInputIngredient9,
+            binding.CreateCocktailFragmentTextInputIngredientAmount10,
+            binding.CreateCocktailFragmentTextInputIngredient10,
+            binding.CreateCocktailFragmentTextInputIngredientAmount11,
+            binding.CreateCocktailFragmentTextInputIngredient11,
+            binding.CreateCocktailFragmentTextInputIngredientAmount12,
+            binding.CreateCocktailFragmentTextInputIngredient12,
+            binding.CreateCocktailFragmentTextInputIngredientAmount13,
+            binding.CreateCocktailFragmentTextInputIngredient13,
+            binding.CreateCocktailFragmentTextInputIngredientAmount14,
+            binding.CreateCocktailFragmentTextInputIngredient14,
+            binding.CreateCocktailFragmentTextInputIngredientAmount15,
+            binding.CreateCocktailFragmentTextInputIngredient15
         )
 
         ExtraTextInputEditTextFields.forEach { textField ->
@@ -100,7 +96,7 @@ class CreateCocktailFragment : Fragment() {
         }
 
 
-        binding.addIngredientBtn.setOnClickListener {
+        binding.CreateCocktailFragmentButtonAddIngredient.setOnClickListener {
                 for (x in 0 until ExtraTextInputEditTextFields.size - 1)
                     if (ExtraTextInputEditTextFields[x].visibility == View.GONE) {
                         ExtraTextInputEditTextFields[x].visibility = View.VISIBLE
@@ -110,126 +106,108 @@ class CreateCocktailFragment : Fragment() {
         }
 
 
-        binding.addCocktail.setOnClickListener {
+        binding.CreateCocktailFragmentButtonAddCocktail.setOnClickListener {
             var c = Cocktail(
-                binding.cocktailNaam.text.toString(),
-                binding.cocktailCategory.selectedItem.toString(),
-                binding.cocktailWerkwijze.text.toString(),
-                binding.Ingredient1.text.toString(),
-                binding.Ingredient2.text.toString(),
-                binding.Ingredient3.text.toString(),
-                binding.Ingredient4.text.toString(),
-                binding.Ingredient5.text.toString(),
-                binding.Ingredient6.text.toString(),
-                binding.Ingredient7.text.toString(),
-                binding.Ingredient8.text.toString(),
-                binding.Ingredient9.text.toString(),
-                binding.Ingredient10.text.toString(),
-                binding.Ingredient11.text.toString(),
-                binding.Ingredient12.text.toString(),
-                binding.Ingredient13.text.toString(),
-                binding.Ingredient14.text.toString(),
-                binding.Ingredient15.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount1.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount2.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount3.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount4.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount5.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount6.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount7.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount9.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount10.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount11.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount11.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount12.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount13.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount14.text.toString(),
-                binding.CreateCocktailFragment_TextInput_IngredientAmount15.text.toString()
-                )
-
-
-            /*
-                view!!.findViewWithTag<EditText>("Ingredient2").text.toString(),
-                view!!.findViewWithTag<EditText>("Ingredient3").text.toString(),
-                view!!.findViewWithTag<EditText>("Ingredient4").text.toString(),
-                view!!.findViewWithTag<EditText>("Ingredient5").text.toString(),
-                view!!.findViewWithTag<EditText>("Ingredient6").text.toString(),
-                view!!.findViewWithTag<EditText>("Ingredient7").text.toString(),
-                view!!.findViewWithTag<EditText>("Ingredient8").text.toString(),
-                view!!.findViewWithTag<EditText>("Ingredient9").text.toString(),
-                view!!.findViewWithTag<EditText>("Ingredient10").text.toString(),
-                view!!.findViewWithTag<EditText>("Ingredient11").text.toString(),
-                view!!.findViewWithTag<EditText>("Ingredient12").text.toString(),
-                view!!.findViewWithTag<EditText>("Ingredient13").text.toString(),
-                view!!.findViewWithTag<EditText>("Ingredient14").text.toString(),
-                view!!.findViewWithTag<EditText>("Ingredient15").text.toString(),
-
-                binding.CreateCocktailFragment_TextInput_IngredientAmount1.text.toString(),
-                view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount2").text.toString(),
-                view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount3").text.toString(),
-                view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount4").text.toString(),
-                view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount5").text.toString(),
-                view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount6").text.toString(),
-                view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount7").text.toString(),
-                view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount8").text.toString(),
-                view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount9").text.toString(),
-                view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount10").text.toString(),
-                view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount11").text.toString(),
-                view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount12").text.toString(),
-                view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount13").text.toString(),
-                view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount14").text.toString(),
-                view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount15").text.toString()
+                binding.CreateCocktailFragmentTextViewCocktailName.text.toString(),
+                binding.CreateCocktailFragmentSpinnerCocktailCategory.selectedItem.toString(),
+                binding.CreateCocktailFragmentTextInputCocktailInstructions.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient1.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient2.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient3.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient4.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient5.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient6.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient7.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient8.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient9.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient10.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient11.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient12.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient13.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient14.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredient15.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount1.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount2.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount3.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount4.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount5.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount6.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount7.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount9.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount10.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount11.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount11.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount12.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount13.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount14.text.toString(),
+                binding.CreateCocktailFragmentTextInputIngredientAmount15.text.toString()
             )
 
-                    var c = Cocktail()
-                    c.name = binding.cocktailNaam.text.toString()
-                    c.category = binding.cocktailCategory.selectedItem.toString()
-                    c.instructions = binding.cocktailWerkwijze.text.toString()
+            viewModel.addCocktail(c)
 
-                    c.ingredient1 = binding.Ingredient1.text.toString()
-                    c.ingredient2 = view!!.findViewWithTag<EditText>("Ingredient2").text.toString()
-                    c.ingredient3 = view!!.findViewWithTag<EditText>("Ingredient3").text.toString()
-                    c.ingredient4 = view!!.findViewWithTag<EditText>("Ingredient4").text.toString()
-                    c.ingredient5 = view!!.findViewWithTag<EditText>("Ingredient5").text.toString()
-                    c.ingredient6 = view!!.findViewWithTag<EditText>("Ingredient6").text.toString()
-                    c.ingredient7 = view!!.findViewWithTag<EditText>("Ingredient7").text.toString()
-                    c.ingredient8 = view!!.findViewWithTag<EditText>("Ingredient8").text.toString()
-                    c.ingredient9 = view!!.findViewWithTag<EditText>("Ingredient9").text.toString()
-                    c.ingredient10 = view!!.findViewWithTag<EditText>("Ingredient10").text.toString()
-                    c.ingredient11 = view!!.findViewWithTag<EditText>("Ingredient11").text.toString()
-                    c.ingredient12 = view!!.findViewWithTag<EditText>("Ingredient12").text.toString()
-                    c.ingredient13 = view!!.findViewWithTag<EditText>("Ingredient13").text.toString()
-                    c.ingredient14 = view!!.findViewWithTag<EditText>("Ingredient14").text.toString()
-                    c.ingredient15 = view!!.findViewWithTag<EditText>("Ingredient15").text.toString()
 
-                    c.ingredientAmount1 = binding.CreateCocktailFragment_TextInput_IngredientAmount1.text.toString()
-                    c.ingredientAmount2 = view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount2").text.toString()
-                    c.ingredientAmount3 = view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount3").text.toString()
-                    c.ingredientAmount4 = view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount4").text.toString()
-                    c.ingredientAmount5 = view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount5").text.toString()
-                    c.ingredientAmount6 = view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount6").text.toString()
-                    c.ingredientAmount7 = view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount7").text.toString()
-                    c.ingredientAmount8 = view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount8").text.toString()
-                    c.ingredientAmount9 = view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount9").text.toString()
-                    c.ingredientAmount10 = view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount10").text.toString()
-                    c.ingredientAmount11 = view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount11").text.toString()
-                    c.ingredientAmount12 = view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount12").text.toString()
-                    c.ingredientAmount13 = view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount13").text.toString()
-                    c.ingredientAmount14 = view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount14").text.toString()
-                    c.ingredientAmount15 = view!!.findViewWithTag<EditText>("CreateCocktailFragment_TextInput_IngredientAmount15").text.toString()
-                    */
-                    viewModel.addCocktail(c)
+            binding.CreateCocktailFragmentTextInputIngredientAmount2.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredient2.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredientAmount3.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredient3.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredientAmount4.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredient4.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredientAmount5.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredient5.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredientAmount6.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredient6.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredientAmount7.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredient7.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredientAmount8.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredient8.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredientAmount9.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredient9.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredientAmount10.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredient10.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredientAmount11.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredient11.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredientAmount12.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredient12.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredientAmount13.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredient13.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredientAmount14.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredient14.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredientAmount15.text!!.clear()
+            binding.CreateCocktailFragmentTextInputIngredient15.text!!.clear()
 
-            binding.CreateCocktailFragment_TextInput_IngredientAmount1.text!!.clear()
-            binding.CreateCocktailFragment_TextInput_IngredientAmount2.text!!.clear()
-            binding.CreateCocktailFragment_TextInput_IngredientAmount3.text!!.clear()
-            binding.cocktailNaam.text!!.clear()
-            binding.Ingredient1.text!!.clear()
-            binding.Ingredient2.text!!.clear()
-            binding.Ingredient3.text!!.clear()
-            binding.cocktailWerkwijze.text!!.clear()
+            binding.CreateCocktailFragmentTextViewCocktailName.text!!.clear()
+            binding.CreateCocktailFragmentTextInputCocktailInstructions.text!!.clear()
 
-            binding.cocktailNaam.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredientAmount2.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredient2.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredientAmount3.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredient3.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredientAmount4.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredient4.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredientAmount5.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredient5.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredientAmount6.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredient6.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredientAmount7.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredient7.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredientAmount8.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredient8.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredientAmount9.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredient9.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredientAmount10.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredient10.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredientAmount11.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredient11.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredientAmount12.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredient12.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredientAmount13.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredient13.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredientAmount14.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredient14.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredientAmount15.visibility = View.GONE
+            binding.CreateCocktailFragmentTextInputIngredient15.visibility = View.GONE
+
+            // TODO array?
 
         }
 

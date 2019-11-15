@@ -28,17 +28,13 @@ class CategoryAdapter( val clickListener: CategoryListener): ListAdapter<Categor
 
     class ViewHolder(val binding: CategorieLayoutBinding, val navController: NavController) : RecyclerView.ViewHolder(binding.root){
 
-        /*
-        val textViewName = binding.CategoryBtnId//  itemView.findViewById<TextView>(R.id.CategoryBtnId)
-        val image = binding.CategoryImgId// itemView.findViewById<ImageButton>(R.id.CategoryImgId)
-        var viewModel = viewModel */
-
         fun bind(
             category: Category,
             clickListener: CategoryListener
         ) {
 
             binding.category = category
+            //TODO opzoeken waarom toegevoegd
             binding.executePendingBindings()
             binding.clickListener = clickListener
 

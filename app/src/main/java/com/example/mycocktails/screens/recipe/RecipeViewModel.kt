@@ -13,7 +13,6 @@ import okhttp3.Dispatcher
 class RecipeViewModel(val recipeRepository: CocktailDao, private val cocktailKey: Long, val dataSource: CocktailDao) : ViewModel() {
 
     private val viewModelJob = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     var cocktail: MutableLiveData<Cocktail> = MutableLiveData()
 

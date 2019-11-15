@@ -28,17 +28,12 @@ class CocktailFragment : Fragment() {
 
     private lateinit var viewModel: CocktailViewModel
 
-    @SuppressLint("WrongConstant") //nog oplossen (LinearLayout.VERITCAL)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val binding: FragmentCocktailBinding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_cocktail, container, false)
-        //TODO
-        binding.RecyclerViewId.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
-
 
         var args = CocktailFragmentArgs.fromBundle(arguments!!)
 
@@ -56,22 +51,16 @@ class CocktailFragment : Fragment() {
         val CocktailViewModel = ViewModelProviders.of(this, viewModelFactory).get(CocktailViewModel::class.java)
         binding.cocktailViewModel = CocktailViewModel
         binding.setLifecycleOwner(this)
-
-
         viewModel = ViewModelProviders.of(this).get(com.example.mycocktails.screens.cocktail.CocktailViewModel::class.java)
-        /*CocktailViewModel.cocktails.observe(this, Observer {
-                cocktail -> cocktail?.let{
-            viewModel.setCocktails(args.categoryName, args.cocktailName)
-        }
-        })*/
-
-        //DEZE WORDT NOG GEFIXT//viewModel.setCocktails(args.categoryName, args.cocktailName)
 
         val adapter =
             CocktailAdapter(CocktailListener { cocktailId ->
                 CocktailViewModel.onCocktailClicked(cocktailId)
             })
+        binding.RecyclerViewId.adapter = adapter
 
+
+        //Observers
         CocktailViewModel.navigateToCocktail.observe(this, Observer { id ->
             id?.let{
                 findNavController().navigate(
@@ -83,14 +72,13 @@ class CocktailFragment : Fragment() {
             }
         })
 
-        binding.RecyclerViewId.adapter = adapter
-
         CocktailViewModel.cocktails.observe(viewLifecycleOwner, Observer {
             it?.let {
                 adapter.submitList(it)
                 binding.CocktailFragmentTextViewLoading.visibility = View.GONE
             }
         })
+
 
         return binding.root
     }

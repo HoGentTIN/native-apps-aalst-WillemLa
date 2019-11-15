@@ -12,8 +12,6 @@ import kotlinx.coroutines.*
 class CreateCocktailViewModel(val cocktailRepository: CocktailRepository, application: Application) :
     AndroidViewModel(application) {
 
-    var _cocktails = MutableLiveData<List<Cocktail>>()
-
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
@@ -24,5 +22,4 @@ class CreateCocktailViewModel(val cocktailRepository: CocktailRepository, applic
     }
 
     private suspend fun insert(cocktail: Cocktail) = cocktailRepository.insert(cocktail)
-
 }

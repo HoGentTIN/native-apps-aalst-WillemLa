@@ -26,50 +26,15 @@ class CocktailAdapter(val clickListener: CocktailListener) : ListAdapter<Cocktai
         )
     }
 
-
     class ViewHolder(val binding: ListLayoutBinding, val navController: NavController) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
             cocktail: Cocktail,
             clickListener: CocktailListener
         ) {
-
             binding.cocktail = cocktail
             binding.executePendingBindings()
             binding.clickListener = clickListener
-
-
-
-/*
-            val res = itemView.context.resources
-            cocktailBtn.text = cockatail.name
-
-            when (position % 4) {
-                0 -> {
-                    listCard.setCardBackgroundColor(Color.rgb(129, 149, 84))
-                    cocktailBtn.setTextColor(Color.BLACK)
-                }
-                1 -> {
-                    listCard.setCardBackgroundColor(Color.rgb(231, 215, 89))
-                    cocktailBtn.setTextColor(Color.BLACK)
-                }
-                2 -> {
-                    listCard.setCardBackgroundColor(Color.rgb(88, 130, 120))
-                    cocktailBtn.setTextColor(Color.BLACK)
-                }
-                3 -> {
-                    listCard.setCardBackgroundColor(Color.rgb(176, 66, 10))
-                    cocktailBtn.setTextColor(Color.BLACK)
-                }
-
-            }*/
-/*
-            cocktailBtn.setOnClickListener{ navController.navigate(
-                CocktailFragmentDirections.actionCocktailFragmentToRecipeFragment(
-                    cockatail.name
-                )
-            )}*/
-
         }
 
         companion object {

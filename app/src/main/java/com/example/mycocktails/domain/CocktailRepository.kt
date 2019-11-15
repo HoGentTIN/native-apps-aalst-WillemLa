@@ -44,10 +44,7 @@ class CocktailRepository (private val cocktailDao: CocktailDao,
         return cocktailDao.getAll()
     }
 
-    suspend fun delete(cocktail: Cocktail) = cocktailDao.delete(cocktail.name)
-    suspend fun clear() = cocktailDao.clear()
     suspend fun insert(cocktail: Cocktail) = cocktailDao.insert(cocktail)
-    suspend fun update(cocktail: Cocktail) = cocktailDao.update(cocktail)
 
     private fun connectedToInternet(): Boolean{
         val activeNetworkInfo = connectivityManager.activeNetworkInfo

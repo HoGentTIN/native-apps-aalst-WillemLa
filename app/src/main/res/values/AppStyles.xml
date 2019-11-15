@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Title Style -->
+    <!-- Overall Project Style -->
     <style name="Screen_Title_Style" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">36sp</item>
@@ -12,6 +12,11 @@
         <item name="android:paddingBottom">5dp</item>
         <item name="android:textAlignment">center</item>
     </style>
+
+    <style name="Project_Button_BlackText" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@android:color/background_dark</item>
+    </style>
+
 
     <!-- Categorie_layout: Category Layout Button Styles -->
     <style name="CreateCocktailForm_TextInputField" parent="Widget.AppCompat.TextView">
@@ -36,7 +41,6 @@
     </style>
 
     <!-- SearchFragment..-->
-    <!-- TODO remove-->
     <style name="SearchFragment_TextInputField" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@android:color/black</item>
         <item name="android:layout_weight">1</item>
@@ -89,10 +93,6 @@
     <style name="CreateCocktail_TextInputEditText_Black" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@android:color/black</item>
 
-    </style>
-
-    <style name="Project_Button_BlackText" parent="Widget.AppCompat.Button">
-        <item name="android:textColor">@android:color/background_dark</item>
     </style>
 
 </resources>

@@ -12,37 +12,10 @@ import kotlinx.coroutines.*
 class CocktailViewModel(val cocktailRepository: CocktailRepository, application: Application, val categoryName: String?, val cocktailName: String?) :
     AndroidViewModel(application) {
 
-
     var _cocktails = MutableLiveData<List<Cocktail>>()
 
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-        /*if (cocktailName != null){
-            database.getByCocktailName( "%" + cocktailName + "%")
-        } else {
-            if (categoryName != null) {
-                database.getByCategory(categoryName)
-            } else {
-                database.getAll()
-            }
-        }*/
-
-    // = database.getAll()
-    // TODO houden??
-    val _navigatoToCocktail = MutableLiveData<Cocktail>()
-
-    val navigate: LiveData<Cocktail>
-        get() = _navigatoToCocktail
-
-    fun doneNavigating() {
-        _navigatoToCocktail.value = null
-    }
-
-    fun addCocktail(cocktail: Cocktail) {
-        uiScope.launch {
-           insert(cocktail)
-        }
-    }
 
     private suspend fun getAllCocktailsFromDatabase(){
         if (categoryName != null){
@@ -52,12 +25,6 @@ class CocktailViewModel(val cocktailRepository: CocktailRepository, application:
             _cocktails.value = cocktailRepository.getAllCocktailsByName(cocktailName!!)
         }
     }
-
-    private suspend fun insert(cocktail: Cocktail) = cocktailRepository.insert(cocktail)
-    private suspend fun delete(cocktail: Cocktail) = cocktailRepository.delete(cocktail)
-    private suspend fun update(cocktail: Cocktail) = cocktailRepository.update(cocktail)
-    private suspend fun clear() = cocktailRepository.clear()
-
 
     init {
         uiScope.launch {

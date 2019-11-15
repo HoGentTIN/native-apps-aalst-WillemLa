@@ -99,7 +99,6 @@ fun TextView.setCocktailCategory(item: Category?){
 fun ImageButton.setCategoryImage(item: Category){
     item.let {
         setImageResource(when(item.name){
-            //fixen
             "Ordinary Drink" -> R.drawable.ordinary
             "Cocktail" -> R.drawable.cocktail
             "Milk / Float / Shake" ->  R.drawable.milk
