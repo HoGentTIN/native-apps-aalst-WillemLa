@@ -18,7 +18,7 @@
         tools:context=".screens.cocktail.CocktailFragment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RecyclerViewId"
+            android:id="@+id/CocktailFragment_RecyclerView_CocktailList"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@android:color/background_light"
@@ -40,7 +40,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/RecyclerViewId" />
+            app:layout_constraintTop_toTopOf="@+id/CocktailFragment_RecyclerView_CocktailList" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

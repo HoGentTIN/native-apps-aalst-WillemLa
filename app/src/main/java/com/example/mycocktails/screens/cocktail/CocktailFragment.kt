@@ -57,7 +57,7 @@ class CocktailFragment : Fragment() {
             CocktailAdapter(CocktailListener { cocktailId ->
                 CocktailViewModel.onCocktailClicked(cocktailId)
             })
-        binding.RecyclerViewId.adapter = adapter
+        binding.CocktailFragmentRecyclerViewCocktailList.adapter = adapter
 
 
         //Observers
