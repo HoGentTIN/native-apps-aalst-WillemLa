@@ -9,7 +9,7 @@ import com.example.mycocktails.domain.Category
 interface CategoryDao {
 
     @Insert
-    fun insert(category: Category)
+    suspend fun insert(category: Category)
 
     @Update
     fun update(category: Category)

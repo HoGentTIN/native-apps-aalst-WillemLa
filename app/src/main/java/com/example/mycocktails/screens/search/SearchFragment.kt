@@ -1,6 +1,8 @@
 package com.example.mycocktails.screens.search
 
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,6 +18,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mycocktails.R
 import com.example.mycocktails.database.CocktailDatabase
 import com.example.mycocktails.databinding.FragmentSearchBinding
+import com.example.mycocktails.domain.CategoryRepository
+import com.example.mycocktails.domain.CocktailRepository
+import com.example.mycocktails.network.CocktailApi
+import com.example.mycocktails.screens.cocktail.CocktailViewModelFactory
 import kotlinx.android.synthetic.main.fragment_search.*
 
 /**
@@ -31,17 +37,19 @@ class SearchFragment : Fragment() {
     ): View? {
 
         //view inflate + bindind class instantie
-
-
         val binding: FragmentSearchBinding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_search, container, false)
-        binding.categoryRecycleView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        binding.SearchFragmentRecycleViewCategoryRecycleView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
 
         val application = requireNotNull(this.activity).application
 
+        val cocktailApiService = CocktailApi.retrofitService
+        val connectivityManager = requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
         val dataSource = CocktailDatabase.getInstance(application).categoryDao
         val viewModelFactory =
-            CategoryViewModelFactory(dataSource, application)
+            CategoryViewModelFactory(
+                CategoryRepository(dataSource, cocktailApiService, connectivityManager), application)
         val SearchViewModel = ViewModelProviders.of(this, viewModelFactory).get(SearchViewModel::class.java)
 
         binding.searchViewModel = SearchViewModel
@@ -49,8 +57,7 @@ class SearchFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(this).get(SearchViewModel::class.java)
 
-
-        binding.SearchBtn.setOnClickListener{
+        binding.SearchFragmentButtonStartSearch.setOnClickListener{
             view: View ->
             findNavController().navigate(
                 SearchFragmentDirections.actionSearchFragmentToCocktailFragment(
@@ -59,33 +66,6 @@ class SearchFragment : Fragment() {
                 )
             )
         }
-/*
-        binding.searchBar.setOnClickListener{
-            view: View ->
-
-            viewModel.onNavigated()//anders kan je niet terug
-
-        }*/
-//        var args = CocktailFragmentArgs.fromBundle(arguments!!)
-
-/*
-
-//val whatever: LiveData<String> = Transformation.map(_word) {it.toString()}
-
-        var searchBar = binding.searchBar; //werkt dit?? lol
-        searchBar.setOnSearchClickListener{
-            parentFragment!!.findNavController().navigate(
-                SearchFragmentDirections.actionSearchFragmentToCocktailFragment(null, searchBar.query as String)
-            )
-        }
-*/
-        /*
-          cocktailBtn.setOnClickListener{ navController.navigate(
-                cocktailFragmentDirections.actionCocktailFragmentToRecipeFragment(
-                    cockatail.name
-                )
-            )}
-        */
 
         val adapter =
             CategoryAdapter(CategoryListener { name ->
@@ -104,16 +84,17 @@ class SearchFragment : Fragment() {
             }
         })
 
-        SearchViewModel.category.observe(viewLifecycleOwner, Observer {
+        SearchViewModel.categories.observe(viewLifecycleOwner, Observer {
             it?.let {
                 adapter.submitList(it)
             }
         })
 
-        //maakt instantie van SearchViewModel --> associatie --> heroproepen --> zelfde ViewModel
 
-        binding.categoryRecycleView.layoutManager = GridLayoutManager(context, 2)
-        binding.categoryRecycleView.adapter = adapter
+
+        //maakt instantie van SearchViewModel --> associatie --> heroproepen --> zelfde ViewModel
+        binding.SearchFragmentRecycleViewCategoryRecycleView.layoutManager = GridLayoutManager(context, 2)
+        binding.SearchFragmentRecycleViewCategoryRecycleView.adapter = adapter
 
         return binding.root
     }

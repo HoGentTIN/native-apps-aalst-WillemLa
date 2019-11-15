@@ -1,6 +1,7 @@
 package com.example.mycocktails.network
 
 import com.example.mycocktails.domain.Drinks
+import com.example.mycocktails.domain.DrinksCategory
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -31,6 +32,9 @@ interface CocktailApiService {
 
     @GET("/api/json/v1/1/search.php")
     suspend fun getCocktailsByName(@Query("s") name: String?): Drinks?
+
+    @GET("/api/json/v1/1/list.php")
+    suspend fun getCategories(@Query("c") name: String?): DrinksCategory
 }
 
 object CocktailApi {
