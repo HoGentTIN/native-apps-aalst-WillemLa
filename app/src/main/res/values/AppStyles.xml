@@ -84,10 +84,12 @@
         <item name="android:layout_marginBottom">20dp</item>
     </style>
 
-    <style name="CreateCocktail_Table_Constraints" >
-        <item name="android:layout_marginLeft">3dp</item>
-        <item name="android:layout_marginRight">3dp</item>
+    <style name="CreateCocktail_TextInput_Constraints" >
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
     </style>
+
+
 
 
     <style name="CreateCocktail_TextInputEditText_Black" parent="Widget.AppCompat.TextView">

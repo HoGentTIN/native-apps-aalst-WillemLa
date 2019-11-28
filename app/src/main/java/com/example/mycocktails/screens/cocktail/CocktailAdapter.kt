@@ -16,8 +16,8 @@ class CocktailAdapter(val clickListener: CocktailListener) : ListAdapter<Cocktai
 ){
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val cocktail: Cocktail = getItem(position)
-        holder.bind(cocktail, clickListener)
+        //getItem(position) = Cocktail
+        holder.bind(getItem(position), clickListener)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

@@ -18,7 +18,7 @@ class SearchViewModel(val categoryRepository: CategoryRepository, application: A
     //val category = database.getAll()
     var _categories = MutableLiveData<List<Category>>()
 
-    val categories
+    val categories: LiveData<List<Category>>
         get() = _categories
 
 

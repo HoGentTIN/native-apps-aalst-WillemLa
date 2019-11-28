@@ -15,7 +15,7 @@ class CocktailRepository (private val cocktailDao: CocktailDao,
     suspend fun getAllCocktailsByCategory( categoryName: String) : List<Cocktail>{
         if (connectedToInternet()) {
             val drink = cocktailApiService.getCocktails(categoryName)
-            var cocktails = ArrayList<Cocktail>()
+            var cocktails = mutableListOf<Cocktail>()
             drink.drinks!!.forEach {
                 cocktail ->
                 var cocktailToAdd: Cocktail = cocktailApiService.getCocktailsById(cocktail.cocktailId.toString()).drinks!![0]
@@ -31,6 +31,7 @@ class CocktailRepository (private val cocktailDao: CocktailDao,
         if (connectedToInternet()) {
             val drink: Drinks? = cocktailApiService.getCocktailsByName(cocktailName)
             if (drink != null && !drink.drinks.isNullOrEmpty()){
+                //TODO listOf()
                 var cocktails = ArrayList<Cocktail>()
                 drink!!.drinks!!.forEach { cocktail ->
                     var cocktailToAdd: Cocktail =

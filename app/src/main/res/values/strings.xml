@@ -13,6 +13,39 @@
     <string name="CocktailFragment_Image_Loading">Loading...</string>
     <string name="SearchFragment_Image_Categroy">An image of the cocktail</string>
 
+    <string name="CreateRecipeFragment_TextView_Ingredient1">Ingredient 1</string>
+    <string name="CreateRecipeFragment_TextView_Ingredient2">Ingredient 2</string>
+    <string name="CreateRecipeFragment_TextView_Ingredient3">Ingredient 3</string>
+    <string name="CreateRecipeFragment_TextView_Ingredient4">Ingredient 4</string>
+    <string name="CreateRecipeFragment_TextView_Ingredient5">Ingredient 5</string>
+    <string name="CreateRecipeFragment_TextView_Ingredient6">Ingredient 6</string>
+    <string name="CreateRecipeFragment_TextView_Ingredient7">Ingredient 7</string>
+    <string name="CreateRecipeFragment_TextView_Ingredient8">Ingredient 8</string>
+    <string name="CreateRecipeFragment_TextView_Ingredient9">Ingredient 9</string>
+    <string name="CreateRecipeFragment_TextView_Ingredient10">Ingredient 10</string>
+    <string name="CreateRecipeFragment_TextView_Ingredient11">Ingredient 11</string>
+    <string name="CreateRecipeFragment_TextView_Ingredient12">Ingredient 12</string>
+    <string name="CreateRecipeFragment_TextView_Ingredient13">Ingredient 13</string>
+    <string name="CreateRecipeFragment_TextView_Ingredient14">Ingredient 14</string>
+    <string name="CreateRecipeFragment_TextView_Ingredient15">Ingredient 15</string>
+
+
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount1">Amount 1</string>
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount2">Amount 2</string>
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount3">Amount 3</string>
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount4">Amount 4</string>
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount5">Amount 5</string>
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount6">Amount 6</string>
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount7">Amount 7</string>
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount8">Amount 8</string>
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount9">Amount 9</string>
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount10">Amount 10</string>
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount11">Amount 11</string>
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount12">Amount 12</string>
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount13">Amount 13</string>
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount14">Amount 14</string>
+    <string name="CreateCocktailFragment_TextInput_IngredientAmount15">Amount 15</string>
+
     <string-array name="soortenArray">
         <item>Ordinary Drink</item>
         <item>Cocktail</item>

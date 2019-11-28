@@ -63,7 +63,7 @@ fun TextView.formatIngredients(cocktail: Cocktail?){
 
            for (x in 0 until IngredientStringComponents.size-1)
            {
-           if (IngredientStringComponents[x] != null  && !IngredientStringComponents[x]!!.isEmpty()  ){
+           if (IngredientStringComponents[x] != null  && !IngredientStringComponents[x]!!.isNullOrEmpty()  ){
                if (x % 2 != 0){
                    if (IngredientStringComponents[x-1] == null){
                        sb += "- "
