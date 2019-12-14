@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CocktailRepository - app</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">app</a>&nbsp;/&nbsp;<a href="../index.html">com.example.mycocktails.domain</a>&nbsp;/&nbsp;<a href="./index.html">CocktailRepository</a><br/>
+<br/>
+<h1>CocktailRepository</h1>
+<code><span class="keyword">class </span><span class="identifier">CocktailRepository</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">CocktailRepository</span><span class="symbol">(</span><span class="identifier" id="com.example.mycocktails.domain.CocktailRepository$<init>(com.example.mycocktails.database.CocktailDao, com.example.mycocktails.network.CocktailApiService, android.net.ConnectivityManager)/cocktailDao">cocktailDao</span><span class="symbol">:</span>&nbsp;<a href="../../com.example.mycocktails.database/-cocktail-dao/index.html"><span class="identifier">CocktailDao</span></a><span class="symbol">, </span><span class="identifier" id="com.example.mycocktails.domain.CocktailRepository$<init>(com.example.mycocktails.database.CocktailDao, com.example.mycocktails.network.CocktailApiService, android.net.ConnectivityManager)/cocktailApiService">cocktailApiService</span><span class="symbol">:</span>&nbsp;<a href="../../com.example.mycocktails.network/-cocktail-api-service/index.html"><span class="identifier">CocktailApiService</span></a><span class="symbol">, </span><span class="identifier" id="com.example.mycocktails.domain.CocktailRepository$<init>(com.example.mycocktails.database.CocktailDao, com.example.mycocktails.network.CocktailApiService, android.net.ConnectivityManager)/connectivityManager">connectivityManager</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/net/ConnectivityManager.html"><span class="identifier">ConnectivityManager</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-all-cocktails-by-category.html">getAllCocktailsByCategory</a></h4>
+</td>
+<td>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">getAllCocktailsByCategory</span><span class="symbol">(</span><span class="identifier" id="com.example.mycocktails.domain.CocktailRepository$getAllCocktailsByCategory(kotlin.String)/categoryName">categoryName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-cocktail/index.html"><span class="identifier">Cocktail</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-all-cocktails-by-name.html">getAllCocktailsByName</a></h4>
+</td>
+<td>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">getAllCocktailsByName</span><span class="symbol">(</span><span class="identifier" id="com.example.mycocktails.domain.CocktailRepository$getAllCocktailsByName(kotlin.String)/cocktailName">cocktailName</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-cocktail/index.html"><span class="identifier">Cocktail</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="insert.html">insert</a></h4>
+</td>
+<td>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">insert</span><span class="symbol">(</span><span class="identifier" id="com.example.mycocktails.domain.CocktailRepository$insert(com.example.mycocktails.domain.Cocktail)/cocktail">cocktail</span><span class="symbol">:</span>&nbsp;<a href="../-cocktail/index.html"><span class="identifier">Cocktail</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

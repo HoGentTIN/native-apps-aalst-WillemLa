@@ -1,17 +1,21 @@
 package com.example.mycocktails.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Update
 import com.example.mycocktails.domain.Category
 
-//Data access object
+// Data access object
 @Dao
 interface CategoryDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(category: Category)
 
-    @Update
+    @Update(onConflict = OnConflictStrategy.IGNORE)
     fun update(category: Category)
 
     @Query("SELECT * from personal_category_table")

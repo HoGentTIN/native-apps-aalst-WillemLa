@@ -48,4 +48,8 @@
         android:name="com.example.mycocktails.screens.create.CreateCocktailFragment"
         android:label="Create Cocktail"
         tools:layout="@layout/fragment_create_cocktail" />
+    <fragment
+        android:id="@+id/ShoppingFragment"
+        android:name="com.example.mycocktails.screens.shopping.ShoppingFragment"
+        android:label="ShoppingFragment" />
 </navigation>

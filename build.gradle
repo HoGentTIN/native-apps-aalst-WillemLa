@@ -23,6 +23,8 @@ buildscript {
         room_version = '2.2.1'
         version_junit = "4.12"
         version_mockk = "1.9.3"
+        koin_version = "2.0.1"
+        dokka_version = "0.10.0"
 
     }
     repositories {
@@ -34,6 +36,7 @@ buildscript {
         classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:1.0.0-alpha09"
         classpath 'com.android.tools.build:gradle:3.5.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:$dokka_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -47,6 +50,7 @@ allprojects {
         jcenter()
         
     }
+    apply from: "$rootDir/ktlint.gradle"
 }
 
 task clean(type: Delete) {

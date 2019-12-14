@@ -1,22 +1,7 @@
 package com.example.mycocktails.database
 
-import android.content.Context
-import androidx.room.Room
-import com.example.mycocktails.domain.Category
-import com.example.mycocktails.domain.Cocktail
-import io.mockk.clearAllMocks
-import io.mockk.mockk
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.runBlockingTest
-import org.junit.After
-import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Test
-import java.io.IOException
-
-/*
 class CocktailDatabaseTest {
-
+/*
     private lateinit var cocktailDao: CocktailDao
     private lateinit var categoryDao: CategoryDao
     private lateinit var db: CocktailDatabase
@@ -46,7 +31,7 @@ class CocktailDatabaseTest {
         db.close()
         clearAllMocks()
     }
-//TODO Error coroutines
+
     @Test
     fun insertAndGetCocktail() {
         runBlocking {
@@ -56,5 +41,5 @@ class CocktailDatabaseTest {
         }
     }
 
-
-}*/
+*/
+}

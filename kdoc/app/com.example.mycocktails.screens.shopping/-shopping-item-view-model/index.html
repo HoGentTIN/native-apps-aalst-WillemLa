@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ShoppingItemViewModel - app</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">app</a>&nbsp;/&nbsp;<a href="../index.html">com.example.mycocktails.screens.shopping</a>&nbsp;/&nbsp;<a href="./index.html">ShoppingItemViewModel</a><br/>
+<br/>
+<h1>ShoppingItemViewModel</h1>
+<code><span class="keyword">class </span><span class="identifier">ShoppingItemViewModel</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ViewModel</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">ShoppingItemViewModel</span><span class="symbol">(</span><span class="identifier" id="com.example.mycocktails.screens.shopping.ShoppingItemViewModel$<init>(com.example.mycocktails.domain.ShoppingItemRepository)/shoppingItemRepository">shoppingItemRepository</span><span class="symbol">:</span>&nbsp;<a href="../../com.example.mycocktails.domain/-shopping-item-repository/index.html"><span class="identifier">ShoppingItemRepository</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="delete-shopping-item.html">deleteShoppingItem</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">deleteShoppingItem</span><span class="symbol">: </span><span class="identifier">MutableLiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="shopping-item-repository.html">shoppingItemRepository</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">shoppingItemRepository</span><span class="symbol">: </span><a href="../../com.example.mycocktails.domain/-shopping-item-repository/index.html"><span class="identifier">ShoppingItemRepository</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="shopping-items.html">shoppingItems</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">shoppingItems</span><span class="symbol">: </span><span class="identifier">LiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../com.example.mycocktails.domain/-shopping-item/index.html"><span class="identifier">ShoppingItem</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="clear.html">clear</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">clear</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="delete.html">delete</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">delete</span><span class="symbol">(</span><span class="identifier" id="com.example.mycocktails.screens.shopping.ShoppingItemViewModel$delete(kotlin.Long)/shoppingItemId">shoppingItemId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="insert.html">insert</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">insert</span><span class="symbol">(</span><span class="identifier" id="com.example.mycocktails.screens.shopping.ShoppingItemViewModel$insert(com.example.mycocktails.domain.ShoppingItem)/shoppingItem">shoppingItem</span><span class="symbol">:</span>&nbsp;<a href="../../com.example.mycocktails.domain/-shopping-item/index.html"><span class="identifier">ShoppingItem</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-navigated.html">onNavigated</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onNavigated</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-shopping-item-clicked.html">onShoppingItemClicked</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onShoppingItemClicked</span><span class="symbol">(</span><span class="identifier" id="com.example.mycocktails.screens.shopping.ShoppingItemViewModel$onShoppingItemClicked(kotlin.Long)/id">id</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

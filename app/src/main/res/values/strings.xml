@@ -4,14 +4,20 @@
     <!-- android:text="@string/SearchFragment_Image_Categroy" -->
 
     <string name="CreateCocktailFragment_TextView_Title">Personal Cocktail</string>
-    <string name="CreateCocktailFragment_Button_AddIngredient">Add ingredient</string>
+    <string name="Fragment_Button_AddIngredient">Add ingredient</string>
     <string name="CreateCocktailFragment_Button_AddCocktail">Add Cocktail</string>
+    <string name="CreateCocktailFragment_TextView_CocktailName">Cocktail name</string>
+    <string name="CreateCocktailFragment_TextView_Instructions">Instructions</string>
     <string name="RecipeFragment_TextView_SubTitle_Ingredients">Ingredients</string>
     <string name="RecipeFragment_TextView_SubTitle_Instructions">Instructions</string>
     <string name="SearchFragment_TextView_SearchTitle">Search</string>
     <string name="SearchFragment_TextView_CategoryTitle">Category</string>
-    <string name="CocktailFragment_Image_Loading">Loading...</string>
     <string name="SearchFragment_Image_Categroy">An image of the cocktail</string>
+    <string name="ShoppingFragment_Textview_Title">Shoppinglist</string>
+    <string name="ShoppingFragment_Button_AddItem">Add item to shoppinglist</string>
+    <string name="ShoppingFragment_Button_ClearList">Clear List</string>
+    <string name="NoWifi">No Wifi</string>
+    <string name="ArrowToRecipe">Arrow to see the cocktail recipe</string>
 
     <string name="CreateRecipeFragment_TextView_Ingredient1">Ingredient 1</string>
     <string name="CreateRecipeFragment_TextView_Ingredient2">Ingredient 2</string>
@@ -46,17 +52,5 @@
     <string name="CreateCocktailFragment_TextInput_IngredientAmount14">Amount 14</string>
     <string name="CreateCocktailFragment_TextInput_IngredientAmount15">Amount 15</string>
 
-    <string-array name="soortenArray">
-        <item>Ordinary Drink</item>
-        <item>Cocktail</item>
-        <item>Milk / Float / Shake</item>
-        <item>Other/Unknown</item>
-        <item>Cocoa</item>
-        <item>Shot</item>
-        <item>Coffee / Tea</item>
-        <item>Homemade Liquer</item>
-        <item>Punch / Party Drink</item>
-        <item>Beer</item>
-        <item>Soft Drink / Soda</item>
-    </string-array>
+    <string name="NavHeader_Image_Cocktails">Multiple cocktails in a row</string>
 </resources>

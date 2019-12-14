@@ -9,7 +9,7 @@ import com.squareup.moshi.Json
 data class Category(
 
     @ColumnInfo(name = "categoryName")
-    @Json(name= "strCategory")
+    @Json(name = "strCategory")
     var name: String = "",
 
     @PrimaryKey(autoGenerate = true)

@@ -25,14 +25,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{() -> clickListener.onClick(category)}"
-            app:cardBackgroundColor="@color/extracolor">
+            android:theme="@style/Screen_Button_Style">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="3dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginRight="3dp"
                 android:orientation="vertical">
 
                 <ImageButton
@@ -40,18 +37,16 @@
                     android:layout_width="175dp"
                     android:layout_height="175dp"
                     android:background="@android:color/background_light"
+                    android:contentDescription="@string/SearchFragment_Image_Categroy"
                     android:onClick="@{() -> clickListener.onClick(category)}"
-                    app:categoryImage="@{category}"
-                    app:srcCompat="@android:drawable/btn_star_big_on"
-                    android:contentDescription="@string/SearchFragment_Image_Categroy"   />
+                    app:categoryImage="@{category}" />
 
                 <Button
                     android:id="@+id/CategoryLayout_Button_CategoryName"
+                    style="@style/Screen_Button_Style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/extracolor"
                     android:onClick="@{() -> clickListener.onClick(category)}"
-                    android:textColor="@android:color/background_light"
                     app:categoryName="@{category}" />
             </LinearLayout>
 

@@ -1,0 +1,20 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:com.example.mycocktails$formatIngredients(android.widget.TextView, com.example.mycocktails.domain.Cocktail)com.example.mycocktails/android.widget.-text-view/format-ingredients.html
+$dokka.location:com.example.mycocktails$setCardBackground(androidx.cardview.widget.CardView, com.example.mycocktails.domain.Cocktail)com.example.mycocktails/androidx.cardview.widget.-card-view/set-card-background.html
+$dokka.location:com.example.mycocktails$setCategoryImage(android.widget.ImageButton, com.example.mycocktails.domain.Category)com.example.mycocktails/android.widget.-image-button/set-category-image.html
+$dokka.location:com.example.mycocktails$setCocktailCategory(android.widget.TextView, com.example.mycocktails.domain.Category)com.example.mycocktails/android.widget.-text-view/set-cocktail-category.html
+$dokka.location:com.example.mycocktails$setCocktailIngredients(android.widget.TextView, com.example.mycocktails.domain.Cocktail)com.example.mycocktails/android.widget.-text-view/set-cocktail-ingredients.html
+$dokka.location:com.example.mycocktails$setCocktailInstructions(android.widget.TextView, com.example.mycocktails.domain.Cocktail)com.example.mycocktails/android.widget.-text-view/set-cocktail-instructions.html
+$dokka.location:com.example.mycocktails$setCocktailNaam(android.widget.TextView, com.example.mycocktails.domain.Cocktail)com.example.mycocktails/android.widget.-text-view/set-cocktail-naam.html
+$dokka.location:com.example.mycocktails$setShoppingItemDescription(android.widget.Button, com.example.mycocktails.domain.ShoppingItem)com.example.mycocktails/android.widget.-button/set-shopping-item-description.html
+com.example.mycocktails
+com.example.mycocktails.database
+com.example.mycocktails.di
+com.example.mycocktails.domain
+com.example.mycocktails.network
+com.example.mycocktails.screens.cocktail
+com.example.mycocktails.screens.create
+com.example.mycocktails.screens.recipe
+com.example.mycocktails.screens.search
+com.example.mycocktails.screens.shopping

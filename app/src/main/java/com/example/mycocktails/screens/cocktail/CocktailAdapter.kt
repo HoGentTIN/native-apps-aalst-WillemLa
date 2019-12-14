@@ -10,13 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mycocktails.databinding.ListLayoutBinding
 import com.example.mycocktails.domain.Cocktail
 
-//Listadapter: Kijkt wat er veranderd is bij update (docktaildiffcallback) + fielddata niet meer definiëren + geen itemCount
 class CocktailAdapter(val clickListener: CocktailListener) : ListAdapter<Cocktail, CocktailAdapter.ViewHolder>(
     CocktailDiffCallback()
-){
+) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //getItem(position) = Cocktail
         holder.bind(getItem(position), clickListener)
     }
 
@@ -45,7 +43,7 @@ class CocktailAdapter(val clickListener: CocktailListener) : ListAdapter<Cocktai
                 return ViewHolder(
                     binding,
                     navController
-                );
+                )
             }
         }
     }
@@ -60,6 +58,6 @@ class CocktailDiffCallback : DiffUtil.ItemCallback<Cocktail>() {
     }
 }
 
-class CocktailListener(val clickListener: (cocktailId: Long) -> Unit){
+class CocktailListener(val clickListener: (cocktailId: Long) -> Unit) {
     fun onClick(cocktail: Cocktail) = clickListener(cocktail.cocktailId)
 }

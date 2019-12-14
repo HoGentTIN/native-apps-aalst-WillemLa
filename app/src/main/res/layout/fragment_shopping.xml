@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="shoppingViewModel"
+            type="com.example.mycocktails.screens.shopping.ShoppingItemViewModel" />
+    </data>
+
+<FrameLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.shopping.ShoppingFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/ShoppingFragment_Title"
+            style="@style/Screen_Title_Style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/ShoppingFragment_Textview_Title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ShoppingFragment_LinearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ShoppingFragment_Title">
+
+            <ImageButton
+                android:id="@+id/ShoppingFragment_AddItem_Button"
+                style="@style/ShoppingFragment_AddItem_Button"
+                android:contentDescription="@string/ShoppingFragment_Button_AddItem"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ShoppingFragment_TextInput_SearchBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/CreateCocktailForm_TextInputField"
+                android:hint="@string/Fragment_Button_AddIngredient" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ShoppingFragment_RecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/ShoppingFragment_ClearList_Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ShoppingFragment_LinearLayout">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <Button
+            android:id="@+id/ShoppingFragment_ClearList_Button"
+            style="@style/Screen_Button_Style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/ShoppingFragment_Button_ClearList"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
+</layout>

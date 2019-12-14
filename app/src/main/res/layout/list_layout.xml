@@ -13,30 +13,39 @@
             type="com.example.mycocktails.screens.cocktail.CocktailListener" />
     </data>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/list"
-        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/CocktailLayout_Button_CocktailName"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CocktailLayout_CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/CocktailLayout_LinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:onClick="@{() -> clickListener.onClick(cocktail)}"
-            android:text="Button"
-            android:layout_weight="1"
-            android:theme="@style/CocktailList_ListLayout_CocktailNameButton"
-            app:cocktailName="@{cocktail}" />
-
-        <ImageButton
-            android:id="@+id/CocktailLayout_ImageButton_ArrowButton"
-            android:theme="@style/CocktailList_ListLayout_Image_Button"
-            android:layout_width="wrap_content"
-            android:layout_weight="0"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent" />
-    </LinearLayout>
+            android:orientation="horizontal"
+            style="@style/CocktailList_LinearLayout"
+            >
+
+            <Button
+                android:id="@+id/CocktailLayout_Button_CocktailName"
+                style="@style/Screen_Button_Style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{() -> clickListener.onClick(cocktail)}"
+                app:cocktailName="@{cocktail}" />
+
+            <ImageButton
+                android:id="@+id/CocktailLayout_ImageButton_ArrowButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:background="@color/colorPrimary"
+                android:contentDescription="@string/ArrowToRecipe"
+                />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </layout>

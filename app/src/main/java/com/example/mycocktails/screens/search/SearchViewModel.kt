@@ -1,48 +1,38 @@
 package com.example.mycocktails.screens.search
 
-import android.app.Application
-import androidx.lifecycle.*
-import com.example.mycocktails.R
-import com.example.mycocktails.database.CategoryDao
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.mycocktails.domain.Category
 import com.example.mycocktails.domain.CategoryRepository
-import com.example.mycocktails.domain.Cocktail
-import com.example.mycocktails.domain.CocktailRepository
-import kotlinx.coroutines.*
+import kotlinx.coroutines.launch
 
-class SearchViewModel(val categoryRepository: CategoryRepository, application: Application) :   AndroidViewModel(application) {
+class SearchViewModel(private val categoryRepository: CategoryRepository) : ViewModel() {
 
-
-    private var viewModelJob = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-    //val category = database.getAll()
-    var _categories = MutableLiveData<List<Category>>()
-
+    private var _categories = MutableLiveData<List<Category>>()
     val categories: LiveData<List<Category>>
         get() = _categories
 
-
-
-    private suspend fun getAllCategoriesFromDatabase(){
+    private suspend fun getAllCategoriesFromDatabase() {
         _categories.value = categoryRepository.getAllCategories()
     }
-    
+
     init {
-        uiScope.launch {
+        viewModelScope.launch {
             getAllCategoriesFromDatabase()
         }
     }
 
     private val _navigateToCategory = MutableLiveData<String>()
-    val navigateToCategory
+    val navigateToCategory: LiveData<String>
         get() = _navigateToCategory
 
-
-    fun onCategoryClicked(name:String){
-        navigateToCategory.value = name
+    fun onCategoryClicked(name: String) {
+        _navigateToCategory.value = name
     }
 
-    fun onNavigated(){
-        navigateToCategory.value = null
+    fun onNavigated() {
+        _navigateToCategory.value = null
     }
 }

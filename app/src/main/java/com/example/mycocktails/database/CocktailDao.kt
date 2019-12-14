@@ -1,10 +1,12 @@
 package com.example.mycocktails.database
 
-import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Update
 import com.example.mycocktails.domain.Cocktail
 
-//Data access object
 @Dao
 interface CocktailDao {
 
@@ -20,7 +22,7 @@ interface CocktailDao {
     @Query("SELECT * from personal_cocktail_table WHERE cocktailCategory = :category")
     suspend fun getByCategory(category: String): List<Cocktail>
 
-    @Query("SELECT * from personal_cocktail_table WHERE cocktailName LIKE  :cocktailName")
+    @Query("SELECT * from personal_cocktail_table WHERE :cocktailName LIKE  cocktailName")
     suspend fun getByCocktailName(cocktailName: String): List<Cocktail>
 
     @Query("DELETE FROM personal_cocktail_table WHERE cocktailName = :name")

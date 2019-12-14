@@ -3,6 +3,7 @@
 
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".screens.create.CreateCocktailFragment">
 
@@ -14,323 +15,355 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/mycocktailbackground"
+        >
+
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/mycocktailbackground"
-            android:fillViewport="true">
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/CreateCocktailFragment_TextInput_CocktailInstructions"
+            app:layout_constraintEnd_toEndOf="parent"
 
-            <LinearLayout
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CreateCocktailFragment_TextView_CocktailName">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/CreateCocktailFragment_TextView_Title"
+                    style="@style/Screen_Title_Style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/CreateCocktailFragment_TextView_Title"
-                    android:textColor="@android:color/black"
-                    android:theme="@style/Screen_Title_Style" />
+                    app:layout_constraintBottom_toTopOf="@+id/CreateCocktailFragment_GuideLine"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/CreateCocktailFragment_GuideLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.2" />
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/CreateCocktailFragment_TextView_CocktailName"
+                    style="@style/CreateCocktail_TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:hint="Naam cocktail"
-                    android:textColor="@android:color/black" />
+                    android:hint="@string/CreateCocktailFragment_TextView_CocktailName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/CreateCocktailFragment_TextView_Title" />
+
+
+                <Spinner
+                    android:id="@+id/CreateCocktailFragment_Spinner_CocktailCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/CreateCocktailFragment_Button_AddCocktail"
+               />
+
+                <Button
+                    android:id="@+id/CreateCocktailFragment_Button_AddCocktail"
+                    style="@style/Screen_Button_Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/CreateCocktailFragment_Button_AddCocktail"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount1"
+                    android:id="@+id/CreateCocktailFragment_TextInput_CocktailInstructions"
+                    layout_constraintTop_toBottomOf="@+id/CreateCocktailFragment_NestedScrollView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount1"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:tag="HoeveelheidIngredient1"
-                    android:textColor="@android:color/black" />
+                    android:gravity="start"
+                    android:hint="@string/CreateCocktailFragment_TextView_Instructions"
+                    android:inputType="textMultiLine"
+                    android:textAlignment="viewStart"
+                    app:layout_constraintBottom_toTopOf="@+id/CreateCocktailFragment_Spinner_CocktailCategory"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient1"
+                <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient1"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+                    android:layout_height="0dp"
+                    android:fillViewport="true"
+                    android:id="@+id/CreateCocktailFragment_NestedScrollView"
+                    app:layout_constraintBottom_toTopOf="@+id/CreateCocktailFragment_TextInput_CocktailInstructions"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/CreateCocktailFragment_TextView_CocktailName">
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:minHeight="100dp"
+                        style="@style/CreateCocktail_LinearLayout"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/CreateCocktailFragment_GuideLine">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount1"
+                            android:tag="HoeveelheidIngredient1"
+                             />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/CreateCocktailFragment_TextInput_Ingredient1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/CreateRecipeFragment_TextView_Ingredient1"
+                          />
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount2"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"                    android:tag="HoeveelheidIngredient1"
-                    android:textColor="@android:color/black" />
+                    android:tag="HoeveelheidIngredient1"
+                      />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient2"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/CreateCocktailFragment_TextInput_Ingredient2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/CreateRecipeFragment_TextView_Ingredient2"
+                  />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount3"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:tag="HoeveelheidIngredient3"
-                    android:textColor="@android:color/black" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount3"
+            android:tag="HoeveelheidIngredient3"
+              />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient3"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/CreateCocktailFragment_TextInput_Ingredient3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/CreateRecipeFragment_TextView_Ingredient3"
+          />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount4"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"                    android:tag="HoeveelheidIngredient1"
-                    android:textColor="@android:color/black" />
+<com.google.android.material.textfield.TextInputEditText
+    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount4"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount4"
+    android:tag="HoeveelheidIngredient1"
+      />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient4"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_Ingredient4"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateRecipeFragment_TextView_Ingredient4"
+  />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount5"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient5"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount5"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount5"
+  />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount6"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient6"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_Ingredient5"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateRecipeFragment_TextView_Ingredient5"
+  />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount7"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient7"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount6"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount6"
+  />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount8"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_Ingredient6"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateRecipeFragment_TextView_Ingredient6"
+  />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient8"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount9"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount7"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount7"
+  />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient9"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount10"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_Ingredient7"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateRecipeFragment_TextView_Ingredient7"
+  />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient10"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount11"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount8"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount8"
+  />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient11"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount12"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount12"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_Ingredient8"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateRecipeFragment_TextView_Ingredient8"
+  />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient12"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient12"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount13"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount13"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount9"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount9"
+  />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient13"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient13"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount14"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount14"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_Ingredient9"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateRecipeFragment_TextView_Ingredient9"
+  />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient14"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient14"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount15"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount15"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount10"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount10"
+  />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_Ingredient15"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/CreateRecipeFragment_TextView_Ingredient15"
-                    android:theme="@style/CreateCocktail_TextInput_Constraints"
-                    android:textColor="@android:color/black" />
 
-                <Button
-                    android:id="@+id/CreateCocktailFragment_Button_AddIngredient"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:theme="@style/Project_Button_BlackText"
-                    android:text="@string/CreateCocktailFragment_Button_AddIngredient" />
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_Ingredient10"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateRecipeFragment_TextView_Ingredient10"
+  />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/CreateCocktailFragment_TextInput_CocktailInstructions"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:gravity="start"
-                    android:hint="Werkwijze"
-                    android:inputType="textMultiLine"
-                    android:minHeight="150dp"
-                    android:textAlignment="viewStart"
-                    android:textColor="@android:color/black" />
 
-                <Spinner
-                    android:id="@+id/CreateCocktailFragment_Spinner_CocktailCategory"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:entries="@array/soortenArray"
-                    />
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount11"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount11"
+  />
 
-                <Button
-                    android:id="@+id/CreateCocktailFragment_Button_AddCocktail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="@string/CreateCocktailFragment_Button_AddCocktail"
-                    android:theme="@style/Project_Button_BlackText"
-                    />
 
-            </LinearLayout>
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_Ingredient11"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateRecipeFragment_TextView_Ingredient11"
+  />
+
+
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount12"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount12"
+  />
+
+
+<com.google.android.material.textfield.TextInputEditText
+android:id="@+id/CreateCocktailFragment_TextInput_Ingredient12"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="@string/CreateRecipeFragment_TextView_Ingredient12"
+  />
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount13"
+                          />
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/CreateCocktailFragment_TextInput_Ingredient13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/CreateRecipeFragment_TextView_Ingredient13"
+                          />
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount14"
+                           />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/CreateCocktailFragment_TextInput_Ingredient14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/CreateRecipeFragment_TextView_Ingredient14"
+                          />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/CreateCocktailFragment_TextInput_IngredientAmount15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/CreateCocktailFragment_TextInput_IngredientAmount15"
+                          />
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/CreateCocktailFragment_TextInput_Ingredient15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/CreateRecipeFragment_TextView_Ingredient15"
+                         
+                        tools:layout_conversion_absoluteHeight="45dp"
+                        tools:layout_conversion_absoluteWidth="381dp" />
+
+
+                        <Button
+                            android:id="@+id/CreateCocktailFragment_Button_AddIngredient"
+                            style="@style/Screen_Button_Style"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Fragment_Button_AddIngredient" />
+
+
+
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </ScrollView>
-
     </FrameLayout>
 </layout>

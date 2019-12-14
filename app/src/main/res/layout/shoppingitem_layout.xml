@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="shoppingItem"
+            type="com.example.mycocktails.domain.ShoppingItem" />
+        <variable
+            name="clickListener"
+            type="com.example.mycocktails.screens.shopping.ShoppingItemListener" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ShoppingItemLayout_CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:id="@+id/ShoppingItemLayout_LinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            style="@style/CocktailList_LinearLayout"
+            >
+
+            <Button
+                android:id="@+id/ShoppingItemLayout_Button_ShoppingItemlName"
+                style="@style/Screen_Button_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{() -> clickListener.onClick(shoppingItem)}"
+                android:theme="@style/Screen_Button_Style"
+                app:shoppingItemDescription="@{shoppingItem}" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

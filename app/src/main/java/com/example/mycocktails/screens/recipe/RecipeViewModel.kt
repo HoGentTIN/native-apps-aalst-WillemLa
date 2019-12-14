@@ -1,31 +1,22 @@
 package com.example.mycocktails.screens.recipe
 
-import androidx.lifecycle.*
-import com.example.mycocktails.database.CocktailDao
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.mycocktails.domain.Cocktail
-import com.example.mycocktails.domain.CocktailRepository
 import com.example.mycocktails.domain.RecipeRepository
-import com.example.mycocktails.formatIngredients
-import kotlinx.coroutines.*
-import okhttp3.Dispatcher
+import kotlinx.coroutines.launch
 
+class RecipeViewModel(val recipeRepository: RecipeRepository) : ViewModel() {
 
-class RecipeViewModel(val recipeRepository: CocktailDao, private val cocktailKey: Long, val dataSource: CocktailDao) : ViewModel() {
+    private var _cocktail: MutableLiveData<Cocktail> = MutableLiveData()
+    val cocktail: LiveData<Cocktail>
+        get() = _cocktail
 
-    private val viewModelJob = Job()
-
-    var cocktail: MutableLiveData<Cocktail> = MutableLiveData()
-
-    suspend fun initCocktail(){
-        withContext(Dispatchers.Main) {
-            cocktail.value = recipeRepository.getCocktailWithId(cocktailKey)// .getAllCocktails(cocktailKey)
-        }
-    }
-
-    init {
-        MainScope().launch {
-            initCocktail()
+    fun initCocktail(cocktailKey: Long) {
+        viewModelScope.launch {
+            _cocktail.value = recipeRepository.getAllCocktails(cocktailKey)
         }
     }
 }
-

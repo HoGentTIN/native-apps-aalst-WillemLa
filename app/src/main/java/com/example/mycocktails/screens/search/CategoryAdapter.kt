@@ -7,11 +7,10 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-
 import com.example.mycocktails.databinding.CategorieLayoutBinding
 import com.example.mycocktails.domain.Category
 
-class CategoryAdapter( val clickListener: CategoryListener): ListAdapter<Category, CategoryAdapter.ViewHolder>(
+class CategoryAdapter(val clickListener: CategoryListener) : ListAdapter<Category, CategoryAdapter.ViewHolder>(
     CategoryDiffCallback()
 ) {
 
@@ -26,7 +25,7 @@ class CategoryAdapter( val clickListener: CategoryListener): ListAdapter<Categor
         )
     }
 
-    class ViewHolder(val binding: CategorieLayoutBinding, val navController: NavController) : RecyclerView.ViewHolder(binding.root){
+    class ViewHolder(val binding: CategorieLayoutBinding, val navController: NavController) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
             category: Category,
@@ -34,10 +33,7 @@ class CategoryAdapter( val clickListener: CategoryListener): ListAdapter<Categor
         ) {
 
             binding.category = category
-            //TODO opzoeken waarom toegevoegd
-            binding.executePendingBindings()
             binding.clickListener = clickListener
-
         }
 
         companion object {
@@ -48,11 +44,11 @@ class CategoryAdapter( val clickListener: CategoryListener): ListAdapter<Categor
                 return ViewHolder(
                     binding,
                     navController
-                );
+                )
             }
         }
- }
     }
+}
 
 class CategoryDiffCallback : DiffUtil.ItemCallback<Category>() {
     override fun areItemsTheSame(oldItem: Category, newItem: Category): Boolean {
@@ -67,4 +63,3 @@ class CategoryDiffCallback : DiffUtil.ItemCallback<Category>() {
 class CategoryListener(val clickListener: (categoryName: String) -> Unit) {
     fun onClick(category: Category) = clickListener(category.name)
 }
-

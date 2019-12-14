@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "drinks_table")
-data class Drinks (
+data class Drinks(
 
     var drinks: List<Cocktail>? = ArrayList(),
 

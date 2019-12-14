@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CocktailApiService - app</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">app</a>&nbsp;/&nbsp;<a href="../index.html">com.example.mycocktails.network</a>&nbsp;/&nbsp;<a href="./index.html">CocktailApiService</a><br/>
+<br/>
+<h1>CocktailApiService</h1>
+<code><span class="keyword">interface </span><span class="identifier">CocktailApiService</span></code>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-categories.html">getCategories</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">getCategories</span><span class="symbol">(</span><span class="identifier" id="com.example.mycocktails.network.CocktailApiService$getCategories(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.example.mycocktails.domain/-drinks-category/index.html"><span class="identifier">DrinksCategory</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-cocktails.html">getCocktails</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">getCocktails</span><span class="symbol">(</span><span class="identifier" id="com.example.mycocktails.network.CocktailApiService$getCocktails(kotlin.String)/category">category</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.example.mycocktails.domain/-drinks/index.html"><span class="identifier">Drinks</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-cocktails-by-id.html">getCocktailsById</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">getCocktailsById</span><span class="symbol">(</span><span class="identifier" id="com.example.mycocktails.network.CocktailApiService$getCocktailsById(kotlin.String)/id">id</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.example.mycocktails.domain/-drinks/index.html"><span class="identifier">Drinks</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-cocktails-by-name.html">getCocktailsByName</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">getCocktailsByName</span><span class="symbol">(</span><span class="identifier" id="com.example.mycocktails.network.CocktailApiService$getCocktailsByName(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.example.mycocktails.domain/-drinks/index.html"><span class="identifier">Drinks</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

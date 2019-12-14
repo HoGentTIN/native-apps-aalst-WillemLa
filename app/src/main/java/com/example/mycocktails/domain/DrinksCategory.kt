@@ -5,9 +5,9 @@ import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 
 @Entity(tableName = "drinksCategory_table")
-data class DrinksCategory (
+data class DrinksCategory(
 
-    @Json(name= "drinks")
+    @Json(name = "drinks")
     var categories: List<Category>? = ArrayList(),
 
     @PrimaryKey(autoGenerate = true)

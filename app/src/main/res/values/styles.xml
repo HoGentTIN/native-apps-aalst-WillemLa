@@ -8,4 +8,100 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Overall Project Style -->
+    <style name="Screen_Title_Style">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="Screen_Button_Style" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+
+    <!-- Shoppinglist -->
+    <style name="ShoppingFragment_AddItem_Button" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="srcCompat">@drawable/add</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:width">30dp</item>
+        <item name="android:paddingRight">15dp</item>
+    </style>
+
+    <!-- Loading/Startup -->
+
+    <style name="loadingWidth" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:width">100dp</item>
+        <item name="android:height">100dp</item>
+    </style>
+
+    <style name="noInternetWidth" parent="Widget.AppCompat.ImageButton">
+        <item name="android:width">100dp</item>
+        <item name="android:height">100dp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+
+    <!-- Categorie_layout: Category Layout Button Styles -->
+    <style name="CreateCocktailForm_TextInputField" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- Recipe..-->
+    <style name="Recipe_SubTitle_TextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Recipe_RecipeText_TextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- Search -->
+
+    <style name="SearchFragment_SearchImage_Button" >
+        <item name="android:background">@android:color/white</item>
+        <item name="srcCompat">@drawable/ic_search_black_24dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+    </style>
+
+    <!-- List Layout.. -->
+
+    <style name="CocktailList_LinearLayout" parent="Widget.AppCompat.Button">
+        <item name="android:padding">5dp</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <!-- Create Cocktail.. -->
+
+    <style name="CreateCocktail_LinearLayout" >
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+    </style>
+
+    <style name="CreateCocktail_TextInputLayout" >
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+
+
+
+
 </resources>
