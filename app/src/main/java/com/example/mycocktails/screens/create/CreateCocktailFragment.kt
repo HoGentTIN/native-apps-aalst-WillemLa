@@ -26,7 +26,6 @@ class CreateCocktailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate layout voor fragment
         val binding: FragmentCreateCocktailBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_create_cocktail, container, false
@@ -34,7 +33,7 @@ class CreateCocktailFragment : Fragment() {
 
         binding.setLifecycleOwner(this)
 
-        var ExtraTextInputEditTextFields = arrayListOf<TextInputEditText>(
+        val ExtraTextInputEditTextFields = arrayListOf<TextInputEditText>(
             binding.CreateCocktailFragmentTextInputIngredientAmount2,
             binding.CreateCocktailFragmentTextInputIngredient2,
             binding.CreateCocktailFragmentTextInputIngredientAmount3,
@@ -86,7 +85,7 @@ class CreateCocktailFragment : Fragment() {
                 Toast.makeText(context, "Please fill in the required fields.", Toast.LENGTH_SHORT)
                     .show()
             } else {
-                var c = Cocktail(
+                val c = Cocktail(
                     binding.CreateCocktailFragmentTextViewCocktailName.text.toString(),
                     binding.CreateCocktailFragmentSpinnerCocktailCategory.selectedItem.toString(),
                     binding.CreateCocktailFragmentTextInputCocktailInstructions.text.toString(),

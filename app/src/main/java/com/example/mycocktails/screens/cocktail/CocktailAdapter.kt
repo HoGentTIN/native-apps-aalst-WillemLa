@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mycocktails.databinding.ListLayoutBinding
 import com.example.mycocktails.domain.Cocktail
 
-class CocktailAdapter(val clickListener: CocktailListener) : ListAdapter<Cocktail, CocktailAdapter.ViewHolder>(
+class CocktailAdapter(private val clickListener: CocktailListener) : ListAdapter<Cocktail, CocktailAdapter.ViewHolder>(
     CocktailDiffCallback()
 ) {
 

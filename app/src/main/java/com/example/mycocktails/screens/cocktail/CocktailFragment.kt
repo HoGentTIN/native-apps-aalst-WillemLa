@@ -10,9 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.mycocktails.databinding.FragmentCocktailBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
-/**
- * A simple [Fragment] subclass.
- */
 class CocktailFragment : Fragment() {
 
     private val viewModel: CocktailViewModel by viewModel<CocktailViewModel>()
@@ -25,7 +22,7 @@ class CocktailFragment : Fragment() {
 
         val binding: FragmentCocktailBinding = FragmentCocktailBinding.inflate(inflater) // DataBindingUtil.inflate(inflater, R.layout.fragment_cocktail, container, false)
 
-        var args = CocktailFragmentArgs.fromBundle(arguments!!)
+        val args = CocktailFragmentArgs.fromBundle(arguments!!)
 
         binding.cocktailViewModel = viewModel
         binding.lifecycleOwner = this
@@ -39,7 +36,6 @@ class CocktailFragment : Fragment() {
 
         binding.CocktailFragmentRecyclerViewCocktailList.adapter = adapter
 
-        // Observers
         viewModel.navigateToCocktail.observe(this, Observer { id ->
             id?.let {
                 findNavController().navigate(

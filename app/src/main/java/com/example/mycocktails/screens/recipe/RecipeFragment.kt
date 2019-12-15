@@ -24,7 +24,7 @@ class RecipeFragment : Fragment() {
         val binding: FragmentRecipeBinding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_recipe, container, false)
 
-        var args = RecipeFragmentArgs.fromBundle(arguments!!)
+        val args = RecipeFragmentArgs.fromBundle(arguments!!)
 
         viewModel.initCocktail(args.cocktailId)
 
