@@ -1,7 +1,7 @@
 package com.example.mycocktails.database
 
 class CocktailDatabaseTest {
-/*
+
     private lateinit var cocktailDao: CocktailDao
     private lateinit var categoryDao: CategoryDao
     private lateinit var db: CocktailDatabase
@@ -41,5 +41,5 @@ class CocktailDatabaseTest {
         }
     }
 
-*/
+
 }
