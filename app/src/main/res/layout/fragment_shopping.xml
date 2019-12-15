@@ -48,7 +48,7 @@
                 android:id="@+id/ShoppingFragment_TextInput_SearchBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/CreateCocktailForm_TextInputField"
+                style="@style/CreateCocktailForm_TextInputField_Searchbar"
                 android:hint="@string/Fragment_Button_AddIngredient" />
 
         </LinearLayout>

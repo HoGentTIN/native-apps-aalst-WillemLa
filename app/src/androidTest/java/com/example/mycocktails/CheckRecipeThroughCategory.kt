@@ -1,10 +1,8 @@
 package com.example.mycocktails
 
-
 import android.view.View
 import android.view.ViewGroup
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -26,7 +24,7 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class CheckRecipeThroughCategory2 {
+class CheckRecipeThroughCategory {
 
     @Rule
     @JvmField
@@ -102,7 +100,7 @@ class CheckRecipeThroughCategory2 {
         )
         textView.check(matches(withText("test23")))
 
-        //Terug naar menu
+        // Terug naar menu
         val appCompatImageButton = onView(
             allOf(
                 withContentDescription("Navigate up"),
@@ -141,7 +139,8 @@ class CheckRecipeThroughCategory2 {
     }
 
     private fun childAtPosition(
-        parentMatcher: Matcher<View>, position: Int
+        parentMatcher: Matcher<View>,
+        position: Int
     ): Matcher<View> {
 
         return object : TypeSafeMatcher<View>() {
@@ -152,8 +151,8 @@ class CheckRecipeThroughCategory2 {
 
             public override fun matchesSafely(view: View): Boolean {
                 val parent = view.parent
-                return parent is ViewGroup && parentMatcher.matches(parent)
-                        && view == parent.getChildAt(position)
+                return parent is ViewGroup && parentMatcher.matches(parent) &&
+                        view == parent.getChildAt(position)
             }
         }
     }

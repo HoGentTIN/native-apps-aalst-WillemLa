@@ -1,17 +1,10 @@
 package com.example.mycocktails.database
 
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
-import com.example.mycocktails.domain.Category
-import com.example.mycocktails.domain.CategoryRepository
-import com.example.mycocktails.domain.Cocktail
-import com.example.mycocktails.domain.DrinksCategory
-import com.example.mycocktails.domain.RecipeRepository
-import com.example.mycocktails.network.CocktailApiService
+import com.example.mycocktails.domain.ShoppingItem
+import com.example.mycocktails.domain.ShoppingItemRepository
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.coVerify
-import io.mockk.every
 import io.mockk.mockk
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.runBlocking
@@ -19,21 +12,30 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
-class RecipeDatabaseTest {
+class ShoppingItemDatabaseTest {
 
-    private val cocktailDao: CocktailDao = mockk()
-    private lateinit var repository: RecipeRepository
+    private val shoppingItemDao: ShoppingItemDao = mockk()
+    private lateinit var repository: ShoppingItemRepository
 
-    private val cocktail1: Cocktail = mockk()
-    private val cocktailId: Long = 0L
+    private val shoppingItem1: ShoppingItem = mockk()
+    private val shoppingItem2: ShoppingItem = mockk()
+    private val shoppingItem3: ShoppingItem = mockk()
+    private val shoppingItem4: ShoppingItem = mockk()
+    private val shoppingItem5: ShoppingItem = mockk()
+    private val shoppingItem1Id = 1L
+
+    private val shoppingItems = arrayListOf<ShoppingItem>(shoppingItem1, shoppingItem2, shoppingItem3, shoppingItem4)
 
     @Before
     fun createDb() {
-        repository = RecipeRepository(cocktailDao)
-        coEvery { repository.getAllCocktails(cocktailId)} returns cocktail1
-        coEvery { cocktailDao.getCocktailWithId(cocktailId) } returns cocktail1
+        repository = ShoppingItemRepository(shoppingItemDao)
+        coEvery { repository.getAll() } returns shoppingItems
+        coEvery { shoppingItem1.shoppingItemId } returns shoppingItem1Id
+        coEvery { shoppingItemDao.getAll() } returns shoppingItems
+        coEvery { shoppingItemDao.delete(shoppingItem1Id) } returns Unit
+        coEvery { shoppingItemDao.clear() } returns Unit
+        coEvery { shoppingItemDao.insert(shoppingItem5) } returns Unit
     }
-
 
     @After
     fun tearDown() {
@@ -41,14 +43,36 @@ class RecipeDatabaseTest {
     }
 
     @Test
-    fun insertAndGetCocktail() {
+    fun getAllShoppingItems() {
         runBlocking {
-            val cocktail = repository.getAllCocktails(cocktailId)
-            assertEquals(cocktail, cocktail1)
-            coVerify { cocktailDao.getCocktailWithId(cocktailId) }
-            coVerify { repository.getAllCocktails(cocktailId) }
+            val items = repository.getAll()
+            assertEquals(items, shoppingItems)
+            assertEquals(4, items.size)
+            coVerify { shoppingItemDao.getAll() }
         }
     }
 
+    @Test
+    fun insertShoppingItem() {
+        runBlocking {
+            repository.insert(shoppingItem5)
+            coVerify { shoppingItemDao.insert(shoppingItem5) }
+        }
+    }
 
+    @Test
+    fun clearShoppingItems() {
+        runBlocking {
+            repository.clear()
+            coVerify { shoppingItemDao.clear() }
+        }
+    }
+
+    @Test
+    fun deleteShoppingItem() {
+        runBlocking {
+            repository.delete(shoppingItem1Id)
+            coVerify { shoppingItemDao.delete(shoppingItem1Id) }
+        }
+    }
 }

@@ -8,7 +8,6 @@ import com.example.mycocktails.domain.CategoryRepository
 import com.example.mycocktails.domain.Cocktail
 import com.example.mycocktails.domain.CocktailRepository
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 // verschil thread = coroutines zijn te stoppen + deze zijn light-weight
 class CreateCocktailViewModel(val cocktailRepository: CocktailRepository, val categoryRepository: CategoryRepository) :
@@ -27,15 +26,8 @@ class CreateCocktailViewModel(val cocktailRepository: CocktailRepository, val ca
 
     init {
         viewModelScope.launch {
-            getSpinnerData()
-        }
-    }
-
-    private suspend fun getSpinnerData(){
-        try {
             _categories.value = ArrayList(categoryRepository.getAllCategories().map { r -> r.name })
         }
-        catch (ex: Exception){ }
     }
 
     private suspend fun insert(cocktail: Cocktail) = cocktailRepository.insert(cocktail)

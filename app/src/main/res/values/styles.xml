@@ -36,13 +36,7 @@
         <item name="android:paddingRight">15dp</item>
     </style>
 
-    <!-- Loading/Startup -->
-
-    <style name="loadingWidth" parent="Widget.AppCompat.ProgressBar">
-        <item name="android:width">100dp</item>
-        <item name="android:height">100dp</item>
-    </style>
-
+    <!-- Internet-->
     <style name="noInternetWidth" parent="Widget.AppCompat.ImageButton">
         <item name="android:width">100dp</item>
         <item name="android:height">100dp</item>
@@ -54,6 +48,10 @@
     <!-- Categorie_layout: Category Layout Button Styles -->
     <style name="CreateCocktailForm_TextInputField" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="CreateCocktailForm_TextInputField_Searchbar" parent="CreateCocktailForm_TextInputField">
+        <item name="android:layout_weight">1</item>
     </style>
 
     <!-- Recipe..-->

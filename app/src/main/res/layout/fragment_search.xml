@@ -47,7 +47,7 @@
                 android:id="@+id/SearchFragment_TextInput_SearchBar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                style="@style/CreateCocktailForm_TextInputField"
+                style="@style/CreateCocktailForm_TextInputField_Searchbar"
  />
 
         </LinearLayout>

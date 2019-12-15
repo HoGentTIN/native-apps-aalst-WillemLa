@@ -19,7 +19,7 @@ interface CategoryDao {
     fun update(category: Category)
 
     @Query("SELECT * from personal_category_table")
-    fun getAll(): LiveData<List<Category>>
+    fun getAll(): List<Category>
 
     @Query("SELECT * from personal_category_table WHERE categoryName = :category")
     fun get(category: String): LiveData<List<Category>>
@@ -28,5 +28,5 @@ interface CategoryDao {
     fun delete(name: String)
 
     @Query("DELETE FROM personal_category_table")
-    fun clear()
+    suspend fun clear()
 }

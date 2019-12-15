@@ -3,10 +3,9 @@ package com.example.mycocktails.network
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import com.example.mycocktails.database.CategoryDao
-import com.example.mycocktails.database.CocktailDao
-import com.example.mycocktails.domain.Cocktail
-import com.example.mycocktails.domain.CocktailRepository
-import com.example.mycocktails.domain.Drinks
+import com.example.mycocktails.domain.Category
+import com.example.mycocktails.domain.CategoryRepository
+import com.example.mycocktails.domain.DrinksCategory
 import io.mockk.Called
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
@@ -16,56 +15,37 @@ import io.mockk.mockk
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
 class CategoryApiServiceTest {
 
-    //region Testing: mockk
-    private val cocktailDao: CocktailDao = mockk()
     private val categoryDao: CategoryDao = mockk()
-    private lateinit var repository: CocktailRepository
+    private lateinit var repository: CategoryRepository
 
-    private val drink1: Drinks = mockk()
-    private val drink2: Drinks = mockk()
-    private val drink: Drinks = mockk()
-    private val drinkWhereDrinksReturnsNull: Drinks = mockk()
+    private val cat1: Category = mockk()
+    private val cat2: Category = mockk()
+    private val cat3: Category = mockk()
+    private val categories: DrinksCategory = mockk()
 
     private val cocktailAPiService: CocktailApiService = mockk()
     private val connectivityManager: ConnectivityManager = mockk()
 
-    private val testCocktail1: Cocktail = mockk()
-    private val testCocktail2: Cocktail = mockk()
-    private val testCocktail3: Cocktail = mockk()
-    private val testCocktail4: Cocktail = mockk()
-
-    private val testId1: Long = 1L
-    private val testId2: Long = 2L
-
     private val networkInfo: NetworkInfo = mockk()
-    //endregion
 
     @Before
     fun setUp() {
-        coEvery { cocktailDao.getByCategory(any()) } returns listOf(testCocktail3, testCocktail4)
-        coEvery { cocktailDao.getByCocktailName(any()) } returns listOf(mockk(), mockk())
-        coEvery { cocktailDao.getAll() } returns listOf(mockk(), mockk())
-        coEvery { cocktailDao.insert(any()) } returns Unit
-        coEvery { categoryDao.get(any()) } returns mockk()
+        coEvery { categoryDao.getAll() } returns listOf(cat2, cat3)
+        coEvery { categoryDao.insert(any()) } returns Unit
+        coEvery { categoryDao.clear() } returns Unit
 
-        coEvery { cocktailAPiService.getCocktails(any()) } returns drink
-        coEvery { cocktailAPiService.getCocktailsById("1") } returns drink1
-        coEvery { cocktailAPiService.getCocktailsById("2") } returns drink2
-        coEvery { cocktailAPiService.getCocktailsByName("") } returns drink
-        coEvery { cocktailAPiService.getCocktailsByName("returnNull") } returns drinkWhereDrinksReturnsNull
-        coEvery { testCocktail1.cocktailId } returns testId1
-        coEvery { testCocktail2.cocktailId } returns testId2
-        coEvery { drink.drinks } returns arrayListOf(testCocktail1, testCocktail2)
-        coEvery { drink1.drinks } returns arrayListOf(testCocktail1)
-        coEvery { drink2.drinks } returns arrayListOf(testCocktail2)
-        coEvery { drinkWhereDrinksReturnsNull.drinks } returns null
+        coEvery { cocktailAPiService.getCategories(any()) } returns categories
+        coEvery { categories.categories } returns arrayListOf(cat1, cat2)
+
         every { connectivityManager.activeNetworkInfo } returns networkInfo
-        repository = CocktailRepository(cocktailDao, cocktailAPiService, connectivityManager)
+        repository = CategoryRepository(categoryDao, cocktailAPiService, connectivityManager)
     }
 
     @After
@@ -74,74 +54,35 @@ class CategoryApiServiceTest {
     }
 
     @Test
-    fun cocktailRepository_getCocktailsByCategory_online_returnsApiAndDatabase() {
+    fun categoryRepository_getAllCategories_online_returnsCategories() {
         // Arrange
         every { networkInfo.isConnected } returns true
         // Act
         runBlockingTest {
-            val cocktails = repository.getAllCocktailsByCategory("Ordinary Drink")
+            val categories = repository.getAllCategories()
             // Assert
-            coVerify { cocktailAPiService.getCocktails(any()) }
-            coVerify { cocktailAPiService.getCocktailsById(any()) }
-            assertEquals(4, cocktails.size)
+            coVerify { cocktailAPiService.getCategories(any()) }
+            coVerify { categoryDao.clear() }
+            assertEquals(2, categories.size)
+            assertTrue(categories.contains(cat1))
+            assertTrue(categories.contains(cat2))
+            assertFalse(categories.contains(cat3))
         }
     }
 
     @Test
-    fun cocktailRepository_getCocktailsByCategory_offline_returnsEverythingFromDatabase() {
+    fun categoryRepository_getAllCategories_offline_returnsDaoCategories() {
         // Arrange
         every { networkInfo.isConnected } returns false
         // Act
         runBlockingTest {
-            val cocktails = repository.getAllCocktailsByCategory("")
+            val categories = repository.getAllCategories()
             // Assert
-            coVerify { cocktailAPiService.getCocktails(any()) wasNot Called } // Niet gebruikt
-            coVerify { cocktailAPiService.getCocktailsById(any()) wasNot Called } // Niet gebruikt
-            assertEquals(2, cocktails.size)
+            coVerify { cocktailAPiService.getCategories(any()) wasNot Called }
+            assertEquals(2, categories.size)
+            assertFalse(categories.contains(cat1))
+            assertTrue(categories.contains(cat2))
+            assertTrue(categories.contains(cat3))
         }
     }
-
-    @Test
-    fun cocktailRepository_getCocktailsByName_online_returnsApiAndDatabase() {
-        // Arrange
-        every { networkInfo.isConnected } returns true
-        // Act
-        runBlockingTest {
-            val cocktails = repository.getAllCocktailsByName("")
-            // Assert
-            coVerify { cocktailAPiService.getCocktailsByName(any()) }
-            coVerify { cocktailAPiService.getCocktailsById(any()) }
-            assertEquals(4, cocktails.size)
-        }
-    }
-
-    @Test
-    fun cocktailRepository_getCocktailsByName_online_NameDoesntExists_DrinksReturnNUll_returnsEverythingFromDatabase() {
-        // Arrange
-        every { networkInfo.isConnected } returns true
-        // Act
-        runBlockingTest {
-            val cocktails = repository.getAllCocktailsByName("returnNull")
-            // Assert
-            coVerify { cocktailAPiService.getCocktailsByName(any())!! wasNot Called } // Niet gebruikt
-            coVerify { cocktailAPiService.getCocktailsById(any()) wasNot Called } // Niet gebruikt
-            assertEquals(2, cocktails.size)
-        }
-    }
-
-    @Test
-    fun cocktailRepository_getCocktailsByName_offline_returnsEverythingFromDatabase() {
-        // Arrange
-        every { networkInfo.isConnected } returns false
-        // Act
-        runBlockingTest {
-            val cocktails = repository.getAllCocktailsByName("")
-            // Assert
-            coVerify { cocktailAPiService.getCocktailsByName(any())!! wasNot Called } // Niet gebruikt
-            coVerify { cocktailAPiService.getCocktailsById(any()) wasNot Called } // Niet gebruikt
-            assertEquals(2, cocktails.size)
-        }
-    }
-
-
 }

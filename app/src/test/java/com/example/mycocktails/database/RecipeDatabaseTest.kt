@@ -1,45 +1,44 @@
 package com.example.mycocktails.database
 
-class CocktailDatabaseTest {
+import com.example.mycocktails.domain.Cocktail
+import com.example.mycocktails.domain.RecipeRepository
+import io.mockk.clearAllMocks
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.mockk
+import junit.framework.Assert.assertEquals
+import kotlinx.coroutines.runBlocking
+import org.junit.After
+import org.junit.Before
+import org.junit.Test
 
-    private lateinit var cocktailDao: CocktailDao
-    private lateinit var categoryDao: CategoryDao
-    private lateinit var db: CocktailDatabase
+class RecipeDatabaseTest {
 
-    private lateinit var testCocktail: Cocktail
-    private lateinit var testCategory: Category
+    private val cocktailDao: CocktailDao = mockk()
+    private lateinit var repository: RecipeRepository
+
+    private val cocktail1: Cocktail = mockk()
+    private val cocktailId: Long = 0L
 
     @Before
     fun createDb() {
-        val context: Context = mockk()
-
-        /* Dao moet in-memory -> zou verdwijnen indien process gestopt wordt */
-        db = Room.inMemoryDatabaseBuilder(context, CocktailDatabase::class.java)
-            /* Enkel toegestaan tijdens testen */
-            .allowMainThreadQueries()
-            .build()
-        cocktailDao = db.cocktailDao
-        categoryDao = db.categoryDao
-
-        testCocktail = Cocktail("TestCocktailName", "category", "Instructions", "ingredient", "ingredientAmount","ingredient", "ingredientAmount","ingredient", "ingredientAmount","ingredient", "ingredientAmount","ingredient", "ingredientAmount","ingredient", "ingredientAmount","ingredient", "ingredientAmount","ingredient", "ingredientAmount","ingredient", "ingredientAmount","ingredient", "ingredientAmount","ingredient", "ingredientAmount","ingredient", "ingredientAmount","ingredient", "ingredientAmount","ingredient", "ingredientAmount","ingredient", "ingredientAmount", 1)
-        testCategory = Category("TestCategoryName")
+        repository = RecipeRepository(cocktailDao)
+        coEvery { repository.getAllCocktails(cocktailId) } returns cocktail1
+        coEvery { cocktailDao.getCocktailWithId(cocktailId) } returns cocktail1
     }
 
     @After
-    fun closeDb() {
-        /* Db sluiten na test + mockks verwijderen */
-        db.close()
+    fun tearDown() {
         clearAllMocks()
     }
 
     @Test
     fun insertAndGetCocktail() {
         runBlocking {
-            cocktailDao.insert(testCocktail)
-            val cocktail = cocktailDao.getCocktailWithId(testCocktail.cocktailId)
-            assertEquals(cocktail.name, testCocktail.name)
+            val cocktail = repository.getAllCocktails(cocktailId)
+            assertEquals(cocktail, cocktail1)
+            coVerify { cocktailDao.getCocktailWithId(cocktailId) }
+            coVerify { repository.getAllCocktails(cocktailId) }
         }
     }
-
-
 }

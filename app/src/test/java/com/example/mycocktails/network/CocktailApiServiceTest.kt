@@ -142,6 +142,4 @@ class CocktailApiServiceTest {
             assertEquals(2, cocktails.size)
         }
     }
-
-
 }

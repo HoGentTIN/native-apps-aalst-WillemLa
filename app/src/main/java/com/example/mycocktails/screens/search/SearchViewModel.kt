@@ -14,13 +14,9 @@ class SearchViewModel(private val categoryRepository: CategoryRepository) : View
     val categories: LiveData<List<Category>>
         get() = _categories
 
-    private suspend fun getAllCategoriesFromDatabase() {
-        _categories.value = categoryRepository.getAllCategories()
-    }
-
     init {
         viewModelScope.launch {
-            getAllCategoriesFromDatabase()
+            _categories.value = categoryRepository.getAllCategories()
         }
     }
 

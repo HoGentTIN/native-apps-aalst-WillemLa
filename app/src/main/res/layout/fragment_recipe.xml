@@ -47,11 +47,11 @@
                 android:text="@string/RecipeFragment_TextView_SubTitle_Ingredients" />
 
             <TextView
-                android:id="@+id/RecipeFragment_TextView_Instructions"
+                android:id="@+id/RecipeFragment_TextView_Ingredients"
                 android:layout_width="match_parent"
-                style="@style/Recipe_RecipeText_TextView"
                 android:layout_height="wrap_content"
-                app:cocktailInstructions="@{cocktail}" />
+                style="@style/Recipe_RecipeText_TextView"
+                app:cocktailIngredientsFormatted="@{cocktail}" />
 
             <TextView
                 android:id="@+id/RecipeFragment_TextView_InstructionsSubtitle"
@@ -61,10 +61,11 @@
                 android:text="@string/RecipeFragment_TextView_SubTitle_Instructions" />
 
             <TextView
-                android:id="@+id/RecipeFragment_TextView_Ingredients"
+                android:id="@+id/RecipeFragment_TextView_Instructions"
                 android:layout_width="match_parent"
+                style="@style/Recipe_RecipeText_TextView"
                 android:layout_height="wrap_content"
-                app:cocktailIngredientsFormatted="@{cocktail}" />
+                app:cocktailInstructions="@{cocktail}" />
 
         </LinearLayout>
 
