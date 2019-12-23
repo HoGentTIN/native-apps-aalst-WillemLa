@@ -73,17 +73,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/SearchFragment_TextView_CategoryTitle" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            style="@style/noInternetWidth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/NoWifi"
-            app:srcCompat="@drawable/nowifi" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>

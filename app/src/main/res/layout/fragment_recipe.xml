@@ -22,52 +22,58 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:cocktailName="@{cocktail}"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <!-- TODO-->
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/RecipeFragment_GuideLine">
 
-            <TextView
-                android:id="@+id/RecipeFragment_TextView_IngredientsSubtitle"
-                style="@style/Recipe_SubTitle_TextView"
+            <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/RecipeFragment_TextView_SubTitle_Ingredients" />
+                android:orientation="vertical"
+                tools:layout_editor_absoluteY="635dp">
 
-            <TextView
-                android:id="@+id/RecipeFragment_TextView_Ingredients"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/Recipe_RecipeText_TextView"
-                app:cocktailIngredientsFormatted="@{cocktail}" />
+                <TextView
+                    android:id="@+id/RecipeFragment_TextView_IngredientsSubtitle"
+                    style="@style/Recipe_SubTitle_TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/RecipeFragment_TextView_SubTitle_Ingredients" />
 
-            <TextView
-                android:id="@+id/RecipeFragment_TextView_InstructionsSubtitle"
-                style="@style/Recipe_SubTitle_TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/RecipeFragment_TextView_SubTitle_Instructions" />
+                <TextView
+                    android:id="@+id/RecipeFragment_TextView_Ingredients"
+                    style="@style/Recipe_RecipeText_TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cocktailIngredientsFormatted="@{cocktail}" />
 
-            <TextView
-                android:id="@+id/RecipeFragment_TextView_Instructions"
-                android:layout_width="match_parent"
-                style="@style/Recipe_RecipeText_TextView"
-                android:layout_height="wrap_content"
-                app:cocktailInstructions="@{cocktail}" />
+                <TextView
+                    android:id="@+id/RecipeFragment_TextView_InstructionsSubtitle"
+                    style="@style/Recipe_SubTitle_TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/RecipeFragment_TextView_SubTitle_Instructions" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/RecipeFragment_TextView_Instructions"
+                    style="@style/Recipe_RecipeText_TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cocktailInstructions="@{cocktail}" />
+
+            </LinearLayout>
+        </ScrollView>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/RecipeFragment_GuideLine"
