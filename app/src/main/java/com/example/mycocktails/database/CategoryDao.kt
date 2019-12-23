@@ -19,7 +19,7 @@ interface CategoryDao {
     fun update(category: Category)
 
     @Query("SELECT * from personal_category_table")
-    fun getAll(): List<Category>
+    suspend fun getAll(): List<Category>
 
     @Query("SELECT * from personal_category_table WHERE categoryName = :category")
     fun get(category: String): LiveData<List<Category>>
