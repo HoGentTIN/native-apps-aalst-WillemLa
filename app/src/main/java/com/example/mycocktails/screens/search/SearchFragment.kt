@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -70,7 +72,16 @@ class SearchFragment : Fragment() {
             binding.SearchFragmentRecycleViewCategoryRecycleView.layoutManager = GridLayoutManager(context, 2)
         }
 
-        // binding.SearchFragmentRecycleViewCategoryRecycleView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        if (!viewModel.connectedToInternet()){
+            val builder = AlertDialog.Builder(context!!)
+            builder.setMessage("No internet connection detected, some functions might work different.")
+            builder.setPositiveButton("OK") { dialog, which ->
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+        }
+
+
         binding.SearchFragmentRecycleViewCategoryRecycleView.adapter = adapter
 
         return binding.root

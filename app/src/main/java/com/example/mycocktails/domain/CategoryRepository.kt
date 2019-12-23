@@ -22,7 +22,7 @@ class CategoryRepository(
         return arrayListOf()
     }
 
-    private fun connectedToInternet(): Boolean {
+    fun connectedToInternet(): Boolean {
         val activeNetworkInfo = connectivityManager.activeNetworkInfo
         return activeNetworkInfo != null && activeNetworkInfo.isConnected
     }

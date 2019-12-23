@@ -20,6 +20,8 @@ class SearchViewModel(private val categoryRepository: CategoryRepository) : View
         }
     }
 
+    fun connectedToInternet() = categoryRepository.connectedToInternet()
+
     private val _navigateToCategory = MutableLiveData<String>()
     val navigateToCategory: LiveData<String>
         get() = _navigateToCategory
