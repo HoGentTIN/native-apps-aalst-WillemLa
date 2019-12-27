@@ -65,7 +65,7 @@ class CheckRecipeThroughCategory {
         // Klik op cocktail "test23"
         val appCompatButton2 = onView(
             allOf(
-                withId(R.id.CocktailLayout_Button_CocktailName), withText("test23"),
+                withId(R.id.CocktailLayout_Button_CocktailName), withText("After Dinner Cocktail"),
                 childAtPosition(
                     allOf(
                         withId(R.id.CocktailLayout_LinearLayout),
@@ -84,7 +84,7 @@ class CheckRecipeThroughCategory {
         // Test: Is de titel van het recept "test23"?
         val textView = onView(
             allOf(
-                withId(R.id.RecipeFragment_TextView_CocktailTitle)/*, withText("test23")*/,
+                withId(R.id.RecipeFragment_TextView_CocktailTitle),
                 childAtPosition(
                     allOf(
                         withId(R.id.linearLayout),
@@ -98,7 +98,7 @@ class CheckRecipeThroughCategory {
                 isDisplayed()
             )
         )
-        textView.check(matches(withText("test23")))
+        textView.check(matches(withText("After Dinner Cocktail")))
 
         // Terug naar menu
         val appCompatImageButton = onView(
